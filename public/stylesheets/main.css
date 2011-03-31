@@ -1,0 +1,44 @@
+#header{
+  background-color: #B1B1B1; 
+}
+#comments{
+  background-color: #E5E5E5;
+}
+#content{
+  border:solid 1px black;
+  margin-right: 0px;
+}
+#content h2, #content div{
+  padding-left:10px;
+  padding-right:10px;
+}
+#student-details li{
+  list-style:none;
+}
+#bottom-navigation {
+  margin-top: 10px;
+  background-color: #B1B1B1;
+}
+#bottom-navigation li{
+  padding: 5px;
+  list-style:none;
+  display:inline;
+  background-color: #A7FFFF;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+#bottom-navigation li.prev-next{
+  background-color: #0D05FF;
+  color: #FFFFFF;
+}
+#bottom-navigation li.active{
+  background-color:#FFFFFF;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+#sign-in{
+ float:right; 
+}
+.month-of-attendance{
+  margin-top:10px;
+}
