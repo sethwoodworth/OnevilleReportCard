@@ -5,7 +5,6 @@
   background-color: #E5E5E5;
 }
 #content{
-  border:solid 1px black;
   margin-right: 0px;
 }
 #content h2, #content div{
@@ -14,6 +13,11 @@
 }
 #student-details li{
   list-style:none;
+}
+#student-image {
+  position:absolute;
+  left:30px;
+  top:15px;
 }
 #bottom-navigation {
   margin-top: 10px;

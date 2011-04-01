@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReportCard</title>
+    <%= stylesheet_link_tag "main" %>
+    <%= stylesheet_link_tag "screen", :media => "screen, projection" %>
+    <%= stylesheet_link_tag "print", :media => "print" %>
+    <!--[if IE]>
+    <%= stylesheet_link_tag "ie", :media=>"screen, projection" %>
+    <![endif]-->
+
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+
+  </head>
+  <body>
+    <div id="container">
+      <div id="student-image">
+        <%= image_tag "https://img.skitch.com/20110330-8y4ixk1rda5caeracd5cr9qqjr.jpg" %>
+      </div>
+      <div id="header" class="span-24">
+        <h1 class="prepend-5 span-13">Joe Smith's Report Card</h1>
+        <div id="sign-in" class="span-1">logout</div>
+      </div>
+
+      <div class="span-24">
+
+        <div id="content" class="column prepend-5 span-12">
+          <%= yield %>
+        </div>
+
+        <div id="comments" class="column prepend-1 span-6 last">Comments:
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...</div>
+      </div>
+      <%= render :partial => "nav" %>
+    </div>
+  </body>
+</html>

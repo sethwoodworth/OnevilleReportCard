@@ -48,7 +48,13 @@ ReportCard::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
- root :to => "home#index"
+ root :to => "home#intro"
+ match 'intro' => 'home#intro', :as => :intro
+ match 'attendance' => 'home#attendance', :as => :attendance
+ match 'grades' => 'home#grades', :as => :grades
+ match 'tests' => 'home#tests', :as => :tests
+ match 'comments' => 'home#comments', :as => :comments
+
 
   # See how all your routes lay out with "rake routes"
 
