@@ -15,17 +15,17 @@
   </head>
   <body>
     <div id="container">
-      <div id="student-image">
-        <%= image_tag "https://img.skitch.com/20110330-8y4ixk1rda5caeracd5cr9qqjr.jpg" %>
-      </div>
       <div id="header" class="span-24">
-        <h1 class="prepend-5 span-13">Joe Smith's Report Card</h1>
+        <div id="student-image" class="span-3">
+          <%= image_tag "student_picture.jpg" %>
+        </div>
+        <h1 id="title" class="prepend-2 span-13">Joe Smith's Report Card</h1>
         <div id="sign-in" class="span-1">logout</div>
       </div>
 
-      <div class="span-24">
+      <div class="span-24" id="content-wrapper">
 
-        <div id="content" class="column prepend-5 span-12">
+        <div id="content" class="column prepend-1 span-16">
           <%= yield %>
         </div>
 
