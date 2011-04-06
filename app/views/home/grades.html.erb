@@ -121,15 +121,6 @@
         <% end %>
       </ul>
 
-      <div class="">
-        <h4>Key:</h4>
-        <% possible_scores.each_pair do |score, interpretation| %>
-          <div>
-            <span class="metric"> <%= score %> </span>
-            - <%= interpretation %> 
-        </div>
-        <% end %>
-      </div>
     </div>
     <div class= "subject-details span-9">
       <h4>Metrics:</h4>
@@ -148,6 +139,15 @@
     </div>
     <div>
       <%= text_area_tag "comment", "Write comments here" %>
+    </div>
+    <div class="clear">
+      <h4>Key:</h4>
+      <% possible_scores.each_pair do |score, interpretation| %>
+        <div>
+          <span class="metric"> <%= score %> </span>
+          - <%= interpretation %> 
+      </div>
+      <% end %>
     </div>
   </div>
   <% end %>
