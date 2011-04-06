@@ -6,8 +6,8 @@
   <%
   subjects_hash = { "Reading and Literature" =>
     [{"Reads with accuracy, fluency, and expression" => "m"},
-      {"Understands and utilizes new vocabulary" => "m"},
-      {"Comprehends literal meaning: identifies and summarizes main ideas, supporting details, recalls facts and events" => "m"},
+      {"Understands and utilizes new vocabulary" => "n"},
+      {"Comprehends literal meaning: identifies and summarizes main ideas, supporting details, recalls facts and events" => "s"},
       {"Comprehends inferential meaning: makes predictions, understands cause and effect" => "m"},
       {"Understands the elements of a variety of genres of literature" => "m"},
       {"Identifies and makes judgments about characters, plot, conflict, and resolution" => "m"},
@@ -106,30 +106,13 @@
       <div class="subject-title">
         <%= subject %>
       </div>
-    <div class="column span-6">
-      <h4>Totals:</h4>
-      <ul class="clear span-6">
-        <% metrics.each do |metric| %>
-          <% metric.each_pair do |m, score| %>
-          <li>
-              <span class="metric">
-                <%= score %>
-              </span>
-              - <%= metrics.size %>
-          </li>
-          <% end %>
-        <% end %>
-      </ul>
-
-    </div>
-    <div class= "subject-details span-9">
-      <h4>Metrics:</h4>
+    <div class= "subject-details span-13">
       <ul class="metrics-and-scores">
       <% metrics.each do |metric| %>
         <% metric.each_pair do |m, score| %>
-          <li class="metric-and-score">
+          <li class="metric-and-score <%="grade-#{score}"%>">
             <span class="metric">
-              <%= score %>
+              <%= "(#{score})" %>
             </span>
             - <%= m %>
           </li>
@@ -139,15 +122,6 @@
     </div>
     <div>
       <%= text_area_tag "comment", "Write comments here" %>
-    </div>
-    <div class="clear">
-      <h4>Key:</h4>
-      <% possible_scores.each_pair do |score, interpretation| %>
-        <div>
-          <span class="metric"> <%= score %> </span>
-          - <%= interpretation %> 
-      </div>
-      <% end %>
     </div>
   </div>
   <% end %>
