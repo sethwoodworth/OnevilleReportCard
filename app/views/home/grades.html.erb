@@ -4,7 +4,7 @@
 <h2 class="span-16"> Academic Performance: </h2>
 <div id="standards-explanation" class="span-6">
   <% possible_scores.each_pair do |abbreviation, description| %>
-    <div class="<%="grade-#{abbreviation}"%>"> <%= abbreviation %> - <%= description %> </div>
+    <div class="<%="grade-#{abbreviation}"%>"> <span class="metric"><%= abbreviation %> </span> - <%= description %> </div>
   <% end %>
   
 </div>
@@ -119,7 +119,7 @@
         <% metric.each_pair do |m, score| %>
           <li class="metric-and-score <%="grade-#{score}"%>">
             <span class="metric">
-              <%= "(#{score})" %>
+              <%= score %>
             </span>
             - <%= m %>
           </li>
