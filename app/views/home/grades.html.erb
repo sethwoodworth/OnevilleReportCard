@@ -1,30 +1,150 @@
-<h2> Grades: </h2>
-  <% subjects = ["Reading and Literature", "Language and Composition", "History and Social Science", "Mathematics", "Science", "Art", "Physical Education", "Library/Media", "Music", "Instrumental Music", "Conduct/Social Behavior", "Work Habits"] %>
+<% possible_scores = {'m' => "Meets the standard consistently", 's' => "Sometimes meets the standard", 'n' => "Not meeting the standard", 'n/a' => "Standard not assessed this term"} %>
 
-  <% subjects.each do |subject| %>
+<h2 class="span-15"> Academic Performance: </h2>
+
+
+  <%
+  subjects_hash = { "Reading and Literature" =>
+    [{"Reads with accuracy, fluency, and expression" => "m"},
+      {"Understands and utilizes new vocabulary" => "m"},
+      {"Comprehends literal meaning: identifies and summarizes main ideas, supporting details, recalls facts and events" => "m"},
+      {"Comprehends inferential meaning: makes predictions, understands cause and effect" => "m"},
+      {"Understands the elements of a variety of genres of literature" => "m"},
+      {"Identifies and makes judgments about characters, plot, conflict, and resolution" => "m"},
+      {"Identifies and analyzes elements of poetry and drama" => "m"}],
+
+"Language and Composition" =>
+    [{"Communicates effectively in oral presentations" => "m"},
+      {"Poses questions, listens to others, and contributes ideas" => "m"},
+      {"Uses correct capitalization and punctuation in written work" => "m"},
+      {"Applies knowledge of spelling rules and patterns to everyday writing" => "m"},
+      {"Uses standard English in written work" => "m"},
+      {"Identifies parts of speech Plans and develops an organized writing piece" => "m"},
+      {"Writes an organized piece with purpose, clarity, and details" => "m"},
+      {"Gathers and analyzes information for research" => "m"},
+      {"Uses a variety of sentence structures" => "m"},
+      {"Effectively uses prefixes, suffixes, and root words" => "m"}],
+
+"History and Social Science"  =>
+    [{"Demonstrates understanding of social studies concepts and content" => "m"},
+      {"Interprets and uses data from maps, charts and tables" => "m"},
+      {"Communicates understanding of social studies concepts using correct vocabulary, both orally and in writing" => "m"}],
+
+"Mathematics"=>
+    [{"Demonstrates mastery of basic facts (+, -)" => "m"},
+      {"Demonstrates mastery of basic facts (x, ÷)" => "m"},
+      {"Demonstrates understanding of place value through millions and thousandths" => "m"},
+      {"Estimates numerical operations using whole numbers, decimals, and fractions" => "m"},
+      {"Solves multi-digit numerical operations" => "m"},
+      {"Understands and uses appropriate problem-solving strategies involving whole numbers, fractions, and patterns" => "m"},
+      {"Uses data to construct and interpret graphs" => "m"},
+      {"Demonstrates knowledge of geometric concepts" => "m"},
+      {"Understands and applies fraction concepts by adding, subtracting, multiplying, comparing, and ordering" => "m"},
+      {"Understands and applies decimals, ratios, and percents" => "m"},
+      {"Uses and converts simple units of measurement" => "m"}],
+
+"Science" =>
+    [{"Predicts probability of outcomes" => "m"},
+      {"Demonstrates understanding of the science concepts and content" => "m"},
+      {"Understands and applies the scientific method" => "m"},
+      {"Communicates scientific thinking using correct vocabulary, both orally and in writing" => "m"}],
+
+"Art"=>
+    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
+      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
+      {"Demonstrates understanding of skills and concepts" => "m"},
+      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
+
+"Physical Education" =>
+    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
+      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
+      {"Demonstrates understanding of skills and concepts" => "m"},
+      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
+
+"Library/Media" =>
+    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
+      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
+      {"Demonstrates understanding of skills and concepts" => "m"},
+      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
+
+"Music"=>
+    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
+      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
+      {"Demonstrates understanding of skills and concepts" => "m"},
+      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
+
+"Instrumental music"=>
+    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
+      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
+      {"Demonstrates understanding of skills and concepts" => "m"},
+      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
+
+"Conduct/Social Behavior" =>
+    [{"Follows school and classroom rules" => "m"},
+      {"Respects school personnel" => "m"},
+      {"Respects peers" => "m"},
+      {"Demonstrates self-control" => "m"},
+      {"Respects school property/materials" => "m"},
+      {"Assumes responsibility for his/her own actions" => "m"}],
+
+"Work Habits" =>
+    [{"Demonstrates effort" => "m"},
+      {"Works cooperatively" => "m"},
+      {"Works well independently" => "m"},
+      {"Completes tasks in allotted time" => "m"},
+      {"Organizes materials/workspace" => "m"},
+      {"Produces neat and careful work" => "m"},
+      {"Listens attentively" => "m"},
+      {"Follows oral and written directions" => "m"},
+      {"Participates appropriately in class" => "m"},
+      {"Completes and returns homework on time" => "m"} ]}
+
+%>
+
+  <% subjects_hash.each_pair do |subject, metrics| %>
   <div class="span-24 subject">
-    <div class="column span-7">
       <div class="subject-title">
         <%= subject %>
       </div>
-      <ul class="clear span-7">
-        <li>
-          Meets standards: 6
-        </li>
-        <li>
-          Sometimes meets standards: 2
-        </li>
-        <li>
-          Not meeting standards: 1
-        </li>
-        <li>
-          Not Applicable: 0
-        </li>
+    <div class="column span-6">
+      <h4>Totals:</h4>
+      <ul class="clear span-6">
+        <% metrics.each do |metric| %>
+          <% metric.each_pair do |m, score| %>
+          <li>
+              <span class="metric">
+                <%= score %>
+              </span>
+              - <%= metrics.size %>
+          </li>
+          <% end %>
+        <% end %>
       </ul>
+
+      <div class="">
+        <h4>Key:</h4>
+        <% possible_scores.each_pair do |score, interpretation| %>
+          <div>
+            <span class="metric"> <%= score %> </span>
+            - <%= interpretation %> 
+        </div>
+        <% end %>
+      </div>
     </div>
-    <div class= "subject-details span-8">
-      <br />
-      flsajddfjlsasd
+    <div class= "subject-details span-9">
+      <h4>Metrics:</h4>
+      <ul class="metrics-and-scores">
+      <% metrics.each do |metric| %>
+        <% metric.each_pair do |m, score| %>
+          <li class="metric-and-score">
+            <span class="metric">
+              <%= score %>
+            </span>
+            - <%= m %>
+          </li>
+        <% end %>
+      <% end %>
+      </ul>
     </div>
     <div>
       <%= text_area_tag "comment", "Write comments here" %>

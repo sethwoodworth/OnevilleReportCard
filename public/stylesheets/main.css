@@ -79,6 +79,10 @@ textarea {
 .month {
   margin-bottom: 30px !important;
 }
+.test {
+  padding: 0px !important;
+  margin: 0px !important;
+}
 .attendence-description{
   padding:0px !important;
 }
@@ -90,4 +94,16 @@ textarea {
 }
 #intro-text {
   font-size:14px;
+}
+.metric {
+  background-color:black;
+  color:white;
+  padding-left:2px;
+}
+.metric-and-score {
+  list-style:none;
+}
+.metrics-and-scores {
+  margin-left: 0;
+  padding-left: 0;
 }
