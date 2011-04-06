@@ -3,18 +3,26 @@
   <% months = ["may", "april", "march"] %>
 
   <% months.each do |month| %>
-  <div class="span-8 month">
+  <div class="clear">
+  </div>
+  <hr />
+  <div class="month">
     <div class="column span-3">
       <%= image_tag "#{month}.png" %>
     </div>
-    <div class="column span-4 attendence-description">
-      <%= "#{month} 9: Arrived- 12:32" %>
+    <div class="column span-11 attendence-description">
+      <div>
+        <%= "#{month} 9: Arrived- 12:32" %>
+      </div>
+      <div>
+        <%= "#{month} 22: Absent" %>
+      </div>
+      <div>
+        <%= "#{month} 25: arrived- 9:23" %>
+      </div>
     </div>
-    <div class="column span-4 attendence-description">
-      <%= "#{month} 22: Absent" %>
-    </div>
-    <div class="column span-4 attendence-description">
-      <%= "#{month} 25: arrived- 9:23" %>
+    <div class="column span-3">
+      <%= text_area_tag "comment", "Write comments here" %>
     </div>
     <div class="column span-3 clear">
       <div>
@@ -23,9 +31,6 @@
       <div>
         Days late: 2
       </div>
-    </div>
-    <div class="column span-3 clear">
-      <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>
   <% end %>

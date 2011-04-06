@@ -2,25 +2,31 @@
   <% subjects = ["Reading and Literature", "Language and Composition", "History and Social Science", "Mathematics", "Science", "Art", "Physical Education", "Library/Media", "Music", "Instrumental Music", "Conduct/Social Behavior", "Work Habits"] %>
 
   <% subjects.each do |subject| %>
-  <div class="span-8 subject">
-    <div class="column span-8 subject-title">
-      <%= subject %>
+  <div class="span-24 subject">
+    <div class="column span-7">
+      <div class="subject-title">
+        <%= subject %>
+      </div>
+      <ul class="clear span-7">
+        <li>
+          Meets standards: 6
+        </li>
+        <li>
+          Sometimes meets standards: 2
+        </li>
+        <li>
+          Not meeting standards: 1
+        </li>
+        <li>
+          Not Applicable: 0
+        </li>
+      </ul>
     </div>
-    <ul class="column span-8 clear">
-      <li>
-        Meets standards: 6
-      </li>
-      <li>
-        Sometimes meets standards: 2
-      </li>
-      <li>
-        Not meeting standards: 1
-      </li>
-      <li>
-        Not Applicable: 0
-      </li>
-    </ul>
-    <div class="column span-3 clear">
+    <div class= "subject-details span-8">
+      <br />
+      flsajddfjlsasd
+    </div>
+    <div>
       <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>

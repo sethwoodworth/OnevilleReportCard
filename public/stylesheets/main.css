@@ -77,8 +77,7 @@ textarea {
 }
 
 .month {
-  padding: 0px !important;
-  margin: 0px !important;
+  margin-bottom: 30px !important;
 }
 .attendence-description{
   padding:0px !important;
