@@ -1,5 +1,5 @@
 #header{
-  background-color: #B1B1B1; 
+  background-color: #8EA2A4; 
 }
 #comments{
   background-color: #E5E5E5;
@@ -20,7 +20,7 @@
 }
 #bottom-navigation {
   margin-top: 10px;
-  background-color: #B1B1B1;
+  background-color: #8EA2A4;
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
@@ -28,7 +28,7 @@
   padding: 5px;
   list-style:none;
   display:inline;
-  background-color: #A7FFFF;
+  background-color: #4AEEAF;
   margin-top: 4px;
   margin-bottom: 4px;
   text-align:center;
@@ -66,7 +66,7 @@
   padding-bottom:100px;
 }
 textarea {
-  width:260px !important; height:70px !important; padding:5px !important;
+  width:260px !important; height:130px !important; padding:5px !important;
 }
 .subject {
   border: 1px solid black;
@@ -101,6 +101,7 @@ textarea {
   padding-left:2px;
 }
 .metric-and-score {
+  margin-bottom:2px;
   list-style:none;
 }
 .metrics-and-scores {
@@ -118,4 +119,10 @@ textarea {
 }
 .grade-na {
   background-color: #8EA2A4;
+}
+
+#standards-explanation {
+  float:right;
+  margin:0px;
+  padding:0px !important;
 }

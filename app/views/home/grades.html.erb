@@ -1,6 +1,13 @@
-<% possible_scores = {'m' => "Meets the standard consistently", 's' => "Sometimes meets the standard", 'n' => "Not meeting the standard", 'n/a' => "Standard not assessed this term"} %>
+<% possible_scores = {'m' => "Meets the standard consistently", 's' => "Sometimes meets the standard", 'n' => "Not meeting the standard", 'na' => "Standard not assessed this term"} %>
 
-<h2 class="span-15"> Academic Performance: </h2>
+<br />
+<h2 class="span-16"> Academic Performance: </h2>
+<div id="standards-explanation" class="span-6">
+  <% possible_scores.each_pair do |abbreviation, description| %>
+    <div class="<%="grade-#{abbreviation}"%>"> <%= abbreviation %> - <%= description %> </div>
+  <% end %>
+  
+</div>
 
 
   <%
@@ -11,7 +18,7 @@
       {"Comprehends inferential meaning: makes predictions, understands cause and effect" => "m"},
       {"Understands the elements of a variety of genres of literature" => "m"},
       {"Identifies and makes judgments about characters, plot, conflict, and resolution" => "m"},
-      {"Identifies and analyzes elements of poetry and drama" => "m"}],
+      {"Identifies and analyzes elements of poetry and drama" => "na"}],
 
 "Language and Composition" =>
     [{"Communicates effectively in oral presentations" => "m"},
@@ -106,7 +113,7 @@
       <div class="subject-title">
         <%= subject %>
       </div>
-    <div class= "subject-details span-13">
+    <div class= "subject-details span-16">
       <ul class="metrics-and-scores">
       <% metrics.each do |metric| %>
         <% metric.each_pair do |m, score| %>
