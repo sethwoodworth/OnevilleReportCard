@@ -9,7 +9,10 @@
     <%= stylesheet_link_tag "ie", :media=>"screen, projection" %>
     <![endif]-->
 
-    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
+    <%= javascript_include_tag 'rails' %>
+    <%= javascript_include_tag "fitted" %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
 
   </head>
@@ -25,12 +28,10 @@
 
       <div class="span-24" id="content-wrapper">
 
-        <div id="content" class="column prepend-1 span-16">
+        <div id="content">
           <%= yield %>
         </div>
 
-        <div id="comments" class="column prepend-1 span-6 last">Comments:
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...</div>
       </div>
       <%= render :partial => "nav" %>
     </div>

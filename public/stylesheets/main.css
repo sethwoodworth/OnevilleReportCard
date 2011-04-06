@@ -21,6 +21,8 @@
 #bottom-navigation {
   margin-top: 10px;
   background-color: #B1B1B1;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 #bottom-navigation li{
   padding: 5px;
@@ -29,10 +31,12 @@
   background-color: #A7FFFF;
   margin-top: 4px;
   margin-bottom: 4px;
+  text-align:center;
 }
-#bottom-navigation li.prev-next{
-  background-color: #0D05FF;
-  color: #FFFFFF;
+#bottom-navigation li a{
+  font-size:15px;
+  color:black;
+  text-decoration:none;
 }
 #bottom-navigation li.active{
   background-color:#FFFFFF;
@@ -50,10 +54,41 @@
 }
 
 #footer {
+    background-color: #FFFFFF;
     position:fixed;
     bottom:0px;
     width:100%;
+    border-top:1px solid black;
+    padding-top: 2px;
+    min-width:960px;
 }
 #content-wrapper{
   padding-bottom:100px;
+}
+textarea {
+  width:260px !important; height:70px !important; padding:5px !important;
+}
+.subject {
+  border: 1px solid black;
+  padding: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 8px !important;
+}
+
+.month {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.attendence-description{
+  padding:0px !important;
+}
+.subject-title {
+  font-size:20px;
+}
+.clickable {
+  cursor:pointer;
+}
+#intro-text {
+  font-size:14px;
 }

@@ -1,14 +1,22 @@
-  <h2>attendance:</h2>
+  <h2>Attendance:</h2>
 
-  <div class="span-11">
-    <div class="column span-4">
-      <h3>March</h3>
-      <%= image_tag "https://img.skitch.com/20110331-bh66ism2r8m1ma9hssdt26im3b.jpg" %>
+  <% months = ["may", "april", "march"] %>
+
+  <% months.each do |month| %>
+  <div class="span-8 month">
+    <div class="column span-3">
+      <%= image_tag "#{month}.png" %>
     </div>
-    <div class="column span-5">
-      <h3>
-        Summary:
-      </h3>
+    <div class="column span-4 attendence-description">
+      <%= "#{month} 9: Arrived- 12:32" %>
+    </div>
+    <div class="column span-4 attendence-description">
+      <%= "#{month} 22: Absent" %>
+    </div>
+    <div class="column span-4 attendence-description">
+      <%= "#{month} 25: arrived- 9:23" %>
+    </div>
+    <div class="column span-3 clear">
       <div>
         Days absent: 1
       </div>
@@ -16,41 +24,8 @@
         Days late: 2
       </div>
     </div>
-  </div>
-
-  <div class="span-11">
-    <div class="column span-4">
-      <h3>April</h3>
-      <%= image_tag "https://img.skitch.com/20110331-bh66ism2r8m1ma9hssdt26im3b.jpg" %>
-    </div>
-    <div class="column span-5">
-      <h3>
-        Summary:
-      </h3>
-      <div>
-        Days absent: 1
-      </div>
-      <div>
-        Days late: 2
-      </div>
+    <div class="column span-3 clear">
+      <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>
-
-  <div class="span-11">
-    <div class="column span-4">
-      <h3>May</h3>
-      <%= image_tag "https://img.skitch.com/20110331-bh66ism2r8m1ma9hssdt26im3b.jpg" %>
-    </div>
-    <div class="column span-5">
-      <h3>
-        Summary:
-      </h3>
-      <div>
-        Days absent: 1
-      </div>
-      <div>
-        Days late: 2
-      </div>
-    </div>
-  </div>
-
+  <% end %>

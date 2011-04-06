@@ -1,5 +1,20 @@
-<div>
-  <h2> Tests: </h2>
-  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...  </p>
+<h2> Tests: </h2>
+  <% tests = ["english", "math", "science"] %>
 
-</div>
+  <% tests.each do |test| %>
+  <div class="span-8 month">
+    <div class="column span-3">
+      <%= image_tag "#{test}.png" %>
+    </div>
+    <div class="column span-4 attendence-description">
+      <%= "#{test}: Percentile- 86" %>
+    </div>
+    <div class="column span-4 attendence-description">
+      <%= "#{test}: Score- 96/100" %>
+    </div>
+    <div class="column span-3 clear">
+      <%= text_area_tag "comment", "Write comments here" %>
+    </div>
+  </div>
+  <% end %>
+

@@ -1,6 +1,28 @@
-<div>
-  <h2> Grades: </h2>
-  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...  </p>
+<h2> Grades: </h2>
+  <% subjects = ["Reading and Literature", "Language and Composition", "History and Social Science", "Mathematics", "Science", "Art", "Physical Education", "Library/Media", "Music", "Instrumental Music", "Conduct/Social Behavior", "Work Habits"] %>
 
-</div>
+  <% subjects.each do |subject| %>
+  <div class="span-8 subject">
+    <div class="column span-8 subject-title">
+      <%= subject %>
+    </div>
+    <ul class="column span-8 clear">
+      <li>
+        Meets standards: 6
+      </li>
+      <li>
+        Sometimes meets standards: 2
+      </li>
+      <li>
+        Not meeting standards: 1
+      </li>
+      <li>
+        Not Applicable: 0
+      </li>
+    </ul>
+    <div class="column span-3 clear">
+      <%= text_area_tag "comment", "Write comments here" %>
+    </div>
+  </div>
+  <% end %>
 
