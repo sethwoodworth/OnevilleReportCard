@@ -53,14 +53,17 @@
   margin-top:45px;
 }
 
+#footer-container{
+    margin-left:auto;
+    margin-right:auto;
+    width:960px;
+}
 #footer {
-    background-color: #FFFFFF;
-    position:fixed;
-    bottom:0px;
-    width:100%;
-    border-top:1px solid black;
-    padding-top: 2px;
-    min-width:960px;
+  width:960px;
+  position:fixed;
+  bottom:0px;
+  padding-top: 2px;
+  background-color: #FFFFFF;
 }
 #content-wrapper{
   padding-bottom:100px;
