@@ -1,5 +1,14 @@
-<h2> Comments: </h2>
+<br />
+<h2> Your Comments: </h2>
+<% comment_categories = ["Attendance", "Grades", "Tests", "General"] %>
 <div>
-  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...  </p>
-
+  <% comment_categories.each do |c| %>
+    <div class="span-5">
+      <h3>
+        <%= link_to c, c.downcase %>:
+      </h3>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...  </p>
+    </div>
+  <% end %>
 </div>
+<%= button_to "Email Mr. Warai Comments", "" %>
