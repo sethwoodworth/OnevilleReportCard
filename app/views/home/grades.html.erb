@@ -113,20 +113,29 @@
       <div class="subject-title">
         <%= subject %>
       </div>
-    <div class= "subject-details span-16">
-      <ul class="metrics-and-scores">
-      <% metrics.each do |metric| %>
-        <% metric.each_pair do |m, score| %>
-          <li class="metric-and-score <%="grade-#{score}"%>">
-            <span class="metric">
-              <%= score %>
-            </span>
-            - <%= m %>
-          </li>
+    <table class= "subject-details span-16">
+        <% metrics.each do |metric| %>
+          <tr class="metrics-and-scores">
+            <% metric.each_pair do |m, score| %>
+              <td class="span-12">
+                 <%= m %>
+               </td>
+               <td class="grade-<%= score %>">
+                  <%= score %>
+                </td>
+               <td class="grade-<%= score %>">
+                  <%= score %>
+                </td>
+               <td class="grade-<%= score %>">
+                  <%= score %>
+                </td>
+               <td class="grade-<%= score %>">
+                  <%= score %>
+                </td>
+            <% end %>
+          </tr>
         <% end %>
-      <% end %>
-      </ul>
-    </div>
+    </table>
     <div>
       <%= text_area_tag "comment", "Write comments here" %>
     </div>
