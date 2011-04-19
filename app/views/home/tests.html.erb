@@ -1,20 +1,52 @@
-<h2> Tests: </h2>
-  <% tests = ["english", "math", "science"] %>
+<br />
+<h2 class="span-16"> Tests: </h2>
+<% possible_scores = {'m' => "Meets the standard consistently", 's' => "Sometimes meets the standard", 'n' => "Not meeting the standard", 'na' => "Standard not assessed this term"} %>
 
-  <% tests.each do |test| %>
-  <div class="span-8 test">
-    <div class="column span-3">
-      <%= image_tag "#{test}.png" %>
-    </div>
-    <div class="column span-4">
-      <%= "#{test}: Percentile- 86" %>
-    </div>
-    <div class="column span-4">
-      <%= "#{test}: Score- 96/100" %>
-    </div>
-    <div class="column span-3 clear">
+<div id="standards-explanation" class="span-6">
+  <% possible_scores.each_pair do |abbreviation, description| %>
+    <div class="<%="grade-#{abbreviation}"%>"> <span class="metric"><%= abbreviation %> </span> - <%= description %> </div>
+  <% end %>
+  
+</div>
+
+  <% tests = [1, 2, 3] %>
+
+  <%
+  tests_hash = { "MCAS" =>
+    [{"Test" => 1}, {"Scores" => 220}, {"Percentile" => 80}],
+
+"MAP" =>
+    [{"Test" => 1}, {"Reading" => 210}, {"Language Arts" => 210}, {"Math" => 210}]}
+
+%>
+
+  <% tests_hash.each do |subject, metrics| %>
+  <div class="span-24 subject">
+      <div class="subject-title">
+        <%= subject %>
+      </div>
+    <table class= "subject-details span-16">
+        <% metrics.each_with_index do |metric, i| %>
+          <tr class="metrics-and-scores">
+            <% metric.each_pair do |m, score| %>
+              <td class="span-12">
+                 <%= m %>
+               </td>
+               <td class="grade-<%= score %>">
+                  <%= score %>
+                </td>
+               <td class="grade-<%= score %>">
+                  <%= score + 1 %>
+                </td>
+               <td class="grade-<%= score %>">
+                  <%= score + 2%>
+                </td>
+            <% end %>
+          </tr>
+        <% end %>
+    </table>
+    <div>
       <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>
   <% end %>
-
