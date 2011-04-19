@@ -166,3 +166,6 @@ textarea {
   width: 40px !important;
   padding: 0px !important;
 }
+.fc-view > div {
+  z-index: -1 !important;
+}
