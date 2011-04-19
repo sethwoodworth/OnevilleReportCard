@@ -169,3 +169,6 @@ textarea {
 .fc-view > div {
   z-index: -1 !important;
 }
+.fc-view, .fc-view-month, .fc-grid {
+  padding-left:0px !important; 
+}
