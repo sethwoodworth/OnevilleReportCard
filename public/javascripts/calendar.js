@@ -12,7 +12,8 @@ $(document).ready(function() {
     weekends: false,
     weekMode: 'liquid',
     editable: false,
-    eventColor: '#378006',
+    eventColor: '#FEFA95',
+    eventTextColor: 'black',
     header : {
       center:   '',
       right:   '',
