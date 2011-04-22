@@ -69,7 +69,7 @@ li{
   padding-bottom:100px;
 }
 textarea {
-  width:260px !important; height:130px !important; padding:5px !important;
+  width:260px !important; height:130px !important; padding:5px !important; margin:0px !important;
 }
 .subject {
   padding: 0px !important;
