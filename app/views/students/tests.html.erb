@@ -1,5 +1,5 @@
 <br />
-<h2 class="span-16"> Tests: </h2>
+<h2 class="span-16"> Tests </h2>
 <% possible_scores = {'m' => "High Scoring", 's' => "Medium Scoring", 'n' => "Low scoring", 'na' => "Test not taken"} %>
 
 <div id="standards-explanation" class="span-6">
@@ -25,11 +25,11 @@
       <div class="subject-title">
         <%= subject %>
       </div>
-    <table class= "subject-details span-16">
+    <table class= "subject-details span-15 scores">
         <% metrics.each_with_index do |metric, i| %>
           <tr class="metrics-and-scores">
             <% metric.each_pair do |m, score| %>
-              <td class="span-12">
+              <td>
                  <%= m %>
                </td>
                <td class="grade-<%= score %>">
@@ -45,7 +45,7 @@
           </tr>
         <% end %>
     </table>
-    <div>
+    <div class="span-3 prepend-1">
       <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>

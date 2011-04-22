@@ -1,7 +1,7 @@
 <% possible_scores = {'m' => "Meets the standard consistently", 's' => "Sometimes meets the standard", 'n' => "Not meeting the standard", 'na' => "Standard not assessed this term"} %>
 
 <br />
-<h2 class="span-16"> Academic Performance: </h2>
+<h2 class="span-16"> Academic Performance </h2>
 <div id="standards-explanation" class="span-6">
   <% possible_scores.each_pair do |abbreviation, description| %>
     <div class="<%="grade-#{abbreviation}"%>"> <span class="metric"><%= abbreviation %> </span> - <%= description %> </div>
@@ -113,11 +113,11 @@
       <div class="subject-title">
         <%= subject %>
       </div>
-    <table class= "subject-details span-16">
+    <table class= "subject-details span-15 scores">
         <% metrics.each do |metric| %>
-          <tr class="metrics-and-scores">
+          <tr class="metrics-and-scores border">
             <% metric.each_pair do |m, score| %>
-              <td class="span-12">
+              <td>
                  <%= m %>
                </td>
                <td class="grade-<%= score %>">
@@ -136,7 +136,7 @@
           </tr>
         <% end %>
     </table>
-    <div>
+    <div class="prepend-1 span-3">
       <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>
