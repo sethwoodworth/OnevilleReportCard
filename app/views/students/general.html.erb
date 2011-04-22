@@ -1,7 +1,7 @@
 <br />
 <div>
   <h2> Welcome to Joe's report card! </h2>
-  <div id="intro-text">
+  <div id="intro-text" class="span-22">
     <p> Here, you can look at Jose's basic academic performance and attendance record.  Want to leave comments for Mr. Wairi? Click "send" on the last page.  (All the comments that you have written will be emailed to Mr. Wairi.) Use the highlighted arrows at the bottom of the screen to see another page!  </p>
 
   </div>
@@ -11,7 +11,7 @@
       Here's what Mr. Wairi has to say about Joe's performance this term:
     </h4>
 
-    <div id="notes-from-josh">
+    <div id="notes-from-teacher">
        <ul>
          <li>
            Lorem ipsum dolor sit amet, consectetur magna aliqua. 
@@ -30,5 +30,8 @@
          </li>
        </ul>
     </div>
+  </div>
+  <div class="prepend-1 span-3">
+    <%= text_area_tag "comment", "Write comments here" %>
   </div>
 </div>

@@ -53,6 +53,7 @@ li{
 }
 
 #footer-container{
+    z-index: 1;
     margin-left:auto;
     margin-right:auto;
     width:960px;
@@ -70,6 +71,7 @@ li{
 }
 textarea {
   width:260px !important; height:130px !important; padding:5px !important; margin:0px !important;
+  border: 3px double  #2B2EC1 !important;
 }
 .subject {
   padding: 0px !important;
@@ -78,15 +80,13 @@ textarea {
   margin-bottom: 8px !important;
 }
 
-.month {
-  margin-top: 70px !important;
-  margin-bottom: 30px !important;
-}
 .test {
   padding: 0px !important;
   margin: 0px !important;
 }
 .attendence-description{
+  margin-top: 25px;
+  margin-left: 80px;
 }
 .subject-title {
   font-size:20px;
@@ -132,7 +132,7 @@ textarea {
   margin-left: auto ;
   margin-right: auto ;
 }
-#notes-from-josh {
+#notes-from-teacher {
   font-style:italic; 
 }
 
@@ -141,6 +141,9 @@ textarea {
 .fc-header-right {
 }
 .fc-header {
+  margin:0px;
+}
+.fc-header-title h2 {
   margin:0px;
 }
 
@@ -153,10 +156,12 @@ textarea {
 .fc-event-title {
   width: 40px !important;
   padding: 0px !important;
+  z-index: -1 !important;
 }
 .fc-event {
   width: 40px !important;
   padding: 0px !important;
+  z-index: -1 !important;
 }
 .fc-event-inner{
   width: 40px !important;
@@ -178,3 +183,6 @@ table.scores td {
 	border-color: gray;
 }
 
+.attendance-comment {
+  margin-top:29px;
+}
