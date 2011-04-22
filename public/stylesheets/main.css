@@ -23,7 +23,8 @@ li{
   margin-bottom: 0px;
 }
 #bottom-navigation li{
-  padding: 5px;
+  padding: 4px;
+  border: 1px #2B2EC1 solid;
   list-style:none;
   display:inline;
   background-color: #2B2EC1;
@@ -36,6 +37,7 @@ li{
   color:white;
   text-decoration:none;
 }
+
 #bottom-navigation li.active{
   background-color:white;
 }
@@ -93,6 +95,10 @@ textarea {
 }
 .clickable {
   cursor:pointer;
+}
+.clickable.hovered {
+  background-color:#C3D9FF !important;
+  color:#2B2EC1 !important;
 }
 #intro-text {
   font-size:14px;
@@ -166,7 +172,7 @@ textarea {
 }
 .fc-view > div {
   background-color: 
-  z-index: 0 !important;
+  z-index: -1 !important;
 }
 .fc-view, .fc-view-month, .fc-grid {
   padding-left:0px !important; 
@@ -184,3 +190,15 @@ table.scores td {
   margin-left:50px;
   margin-top:29px;
 }
+.link {
+  text-decoration:none;
+  color: white;
+  background-color: #2B2EC1;
+  padding: 5px;
+}
+.link:hover {
+  background-color:#C3D9FF;
+  color:#2B2EC1;
+  border: 1px #2B2EC1 solid;
+}
+
