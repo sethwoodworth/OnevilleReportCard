@@ -169,13 +169,15 @@ textarea {
 .fc-event-inner{
   width: 40px !important;
   padding: 0px !important;
+  z-index: -1 !important;
 }
 .fc-view > div {
   background-color: 
-  z-index: -1 !important;
+  z-index: 0 !important;
 }
 .fc-view, .fc-view-month, .fc-grid {
   padding-left:0px !important; 
+  z-index: 0 !important;
 }
 
 /*hmmm*/
