@@ -85,8 +85,8 @@ textarea {
   margin: 0px !important;
 }
 .attendence-description{
-  margin-top: 25px;
-  margin-left: 80px;
+  margin-top: 55px;
+  margin-left: 30px;
 }
 .subject-title {
   font-size:20px;
@@ -150,9 +150,6 @@ textarea {
 .list-heading {
   margin-bottom:0px; 
 }
-.attendance-description {
-  margin-left: 0px !important;
-}
 .fc-event-title {
   width: 40px !important;
   padding: 0px !important;
@@ -184,5 +181,6 @@ table.scores td {
 }
 
 .attendance-comment {
+  margin-left:50px;
   margin-top:29px;
 }

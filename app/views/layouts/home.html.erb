@@ -28,15 +28,15 @@
         <div id="student-image" class="span-3">
           <%= image_tag "student_picture.jpg" %>
         </div>
-        <h1 id="title" class="prepend-2 span-11">Report Card</h1>
-        <div id="sign-in" class="span-3">
+        <h1 id="title" class="prepend-3 span-11">Report Card</h1>
+        <div id="sign-in" class="span-1">
           <% if user_signed_in? %>
-            Signed in as: <%= current_user.email %>
-              <%= link_to "logout", destroy_user_session_path %>
+            <%= link_to "logout", destroy_user_session_path %>
           <% else %>
             <%= link_to "login", new_user_session_path %>
           <% end %>
         </div>
+
       </div>
 
       <div class="span-24" id="content-wrapper">
