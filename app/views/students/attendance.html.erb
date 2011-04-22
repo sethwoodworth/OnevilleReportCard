@@ -1,0 +1,36 @@
+<br />
+  <h2>Attendance:</h2>
+
+  <% months = ["may", "april", "march"] %>
+
+  <% months.each do |month| %>
+  <hr />
+  <div class="column span-3">
+  </div>
+  <div class="calendar span-9"></div>
+  <div class="month">
+    <div class="column span-7 attendence-description">
+      <h3 class="list-heading">Summary:</h3>
+      <div>
+        Total days absent: 1
+      </div>
+      <div>
+        Total days late: 2
+      </div>
+      <br />
+      <h3 class="list-heading">Details:</h3>
+      <div>
+        <%= "#{month} 9: Arrived- 12:32" %>
+      </div>
+      <div>
+        <%= "#{month} 22: Absent" %>
+      </div>
+      <div>
+        <%= "#{month} 25: arrived- 9:23" %>
+      </div>
+    </div>
+    <div class="column span-3">
+      <%= text_area_tag "comment", "Write comments here" %>
+    </div>
+  </div>
+  <% end %>

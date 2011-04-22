@@ -1,5 +1,6 @@
 ReportCard::Application.routes.draw do
   devise_for :users
+  devise_for :admins
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -48,15 +49,14 @@ ReportCard::Application.routes.draw do
   #     resources :products
   #   end
 
-devise_for :users
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
- root :to => "home#intro"
- match 'intro' => 'home#intro', :as => :intro
- match 'attendance' => 'home#attendance', :as => :attendance
- match 'grades' => 'home#grades', :as => :grades
- match 'tests' => 'home#tests', :as => :tests
- match 'comments' => 'home#comments', :as => :comments
+ root :to => "home#index"
+ match 'intro' => 'students#intro', :as => :intro
+ match 'attendance' => 'students#attendance', :as => :attendance
+ match 'grades' => 'students#grades', :as => :grades
+ match 'tests' => 'students#tests', :as => :tests
+ match 'comments' => 'students#comments', :as => :comments
 
 
   # See how all your routes lay out with "rake routes"
