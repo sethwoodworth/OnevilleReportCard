@@ -1,9 +1,9 @@
-<% pages = ["intro", "attendance", "grades", "tests", "comments"] %>
+<% pages = ["general", "attendance", "grades", "tests", "comments"] %>
 <div id="footer-container">
   <div id="footer">
     <div>
       <div class="prev span-2 prepend-1 prev-next">
-        <% if params[:action]=="intro" %>
+        <% if params[:action]=="general" %>
           <%= image_tag "left_inactive.png" %>
         <% else %>
           <%= link_to (image_tag "left.png"), pages[pages.index(params[:action]) - 1] %>

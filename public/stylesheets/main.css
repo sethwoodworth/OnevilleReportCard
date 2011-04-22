@@ -150,9 +150,6 @@ textarea {
 .attendance-description {
   margin-left: 0px !important;
 }
-.fc-day-number {
-  padding-right:0px !important;
-}
 .fc-event-title {
   width: 40px !important;
   padding: 0px !important;
@@ -166,7 +163,8 @@ textarea {
   padding: 0px !important;
 }
 .fc-view > div {
-  z-index: -1 !important;
+  background-color: 
+  z-index: 0 !important;
 }
 .fc-view, .fc-view-month, .fc-grid {
   padding-left:0px !important; 
