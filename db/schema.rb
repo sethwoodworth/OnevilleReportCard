@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110421040909) do
+ActiveRecord::Schema.define(:version => 20110428030206) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -23,6 +23,38 @@ ActiveRecord::Schema.define(:version => 20110421040909) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "anomalies", :force => true do |t|
+    t.integer  "attendance_id"
+    t.string   "kind"
+    t.string   "justification"
+    t.date     "school_date"
+    t.time     "moment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attendances", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exams", :force => true do |t|
+    t.string   "kind"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
