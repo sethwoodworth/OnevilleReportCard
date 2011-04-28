@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  attendance_id: 1
+  kind: MyString
+  justification: MyString
+  school_date: 2011-04-27
+  moment: 2011-04-27 22:55:47
+
+two:
+  attendance_id: 1
+  kind: MyString
+  justification: MyString
+  school_date: 2011-04-27
+  moment: 2011-04-27 22:55:47
