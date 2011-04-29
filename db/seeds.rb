@@ -154,11 +154,17 @@ Standard.all.each do |standard|
 end
 exam = Exam.create(:kind => "MCAS")
 3.times do |i|
-  ExamAssessment.create(:exam_id => exam.id, 
+  e = ExamAssessment.create(:exam_id => exam.id, 
                     :period => Time.new(2011, (i+1)*3)) 
+  Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Score")
+  Section.create(:exam_assessment_id => e.id, :score => rand(100), :name => "Percentile")
 end
 exam = Exam.create(:kind => "MAP")
 3.times do |i|
-  ExamAssessment.create(:exam_id => exam.id, 
+  e = ExamAssessment.create(:exam_id => exam.id, 
                     :period => Time.new(2011, (i+1)*3)) 
+  Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Reading")
+  Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Language Arts")
+  Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Math")
 end
+

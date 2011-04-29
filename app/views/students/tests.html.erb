@@ -8,15 +8,8 @@
   <% end %>
 </div>
 
-
-  <% tests_hash = { @exams.first.kind =>
-    [{"Test" => 1}, {"Scores" => 220}, {"Percentile" => 80}],
-
-@exams.last.kind =>
-    [{"Test" => 1}, {"Reading" => 210}, {"Language Arts" => 210}, {"Math" => 210}]} %>
-
-
-  <% @exam = @exams.first %>
+  <% @exams.each do |exam| %>
+    <% @exam = exam %>
   <div class="span-24 subject">
       <div class="subject-title">
         <%= @exam.kind %>
@@ -25,19 +18,21 @@
         <th class="metrics-and-scores">
           Period
         </th>
+        <% @exam.exam_assessments.map { |ea| ea.sections}.flatten.map {|s| s.name }.uniq.each do |section| %>
         <th class="metrics-and-scores">
-          Score
+          <%= section %>
         </th>
-        <th class="metrics-and-scores">
-          Percentile
-        </th>
-        <% @exam.exam_assessments.each_with_index do |e, i| %>
-          <tr class="metrics-and-scores">
-            <% 3.times do %>
-              <td class="grade-<%= 'score' %>">
-                <%= 1+i %>
-              </td>
-            <% end %>
+        <% end %>
+        <% @exam.exam_assessments.each do |ea|  %>
+          <tr>
+            <td>
+              <%= Time.new(ea.period.year, ea.period.month).strftime('%b  %Y') %>
+            </td>
+          <% ea.sections.each do |s| %>
+            <td>
+              <%= s.score %>
+            </td>
+          <% end %>
           </tr>
         <% end %>
       </table>
@@ -45,36 +40,5 @@
       <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>
+  <% end %>
 
-  <% @exam = @exams.last %>
-  <div class="span-24 subject">
-      <div class="subject-title">
-        <%= @exam.kind %>
-      </div>
-      <table class= "subject-details span-15 scores">
-        <th class="metrics-and-scores">
-          Period
-        </th>
-        <th class="metrics-and-scores">
-          Reading
-        </th>
-        <th class="metrics-and-scores">
-          Language Arts
-        </th>
-        <th class="metrics-and-scores">
-          Math
-        </th>
-          <% @exam.exam_assessments.each_with_index do |e, i| %>
-            <tr class="metrics-and-scores">
-              <% 4.times do  %>
-                <td class="grade-<%= 'score' %>">
-                  <%= 1+i %>
-                </td>
-              <% end %>
-            </tr>
-          <% end %>
-      </table>
-    <div class="span-3 prepend-1">
-      <%= text_area_tag "comment", "Write comments here" %>
-    </div>
-  </div>
