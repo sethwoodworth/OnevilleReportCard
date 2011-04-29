@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20110429084919) do
 
   create_table "standards", :force => true do |t|
     t.string   "description"
-    t.string   "subject_id"
+    t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
