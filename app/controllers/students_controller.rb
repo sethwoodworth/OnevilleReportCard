@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
 
   def send_comments
     if TeacherMailer.comments_email.deliver
-      flash[:notice] = "Your comments have been sent to Mr. Warai!" 
+      flash[:notice] = "Your comments have been sent to Mr. Wairi!" 
       redirect_to comments_path
     else
       flash[:error] = "Something went wrong..." 

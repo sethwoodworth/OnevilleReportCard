@@ -1,14 +1,68 @@
 <br />
 <h2> Your Comments </h2>
-<% comment_categories = ["Attendance", "Grades", "Tests", "General"] %>
-<div>
-  <% comment_categories.each do |c| %>
+
+    <div class="span-6">
+      <h3>
+        <%= link_to "General", "general", :class => "link" %>
+      </h3>
+      <p> 
+        <% if current_user.student.comment_list.first.present? %>
+          <%= current_user.student.comment_list.first %>
+        <% end %>
+      </p>
+    </div>
+    <div class="span-6">
+      <h3>
+        <%= link_to "Attendance", "attendance", :class => "link" %>
+      </h3>
+      <% Attendance.all.each do |a| %>
+        <p>
+          <% if a.comment_list.first.present? %>
+            Regarding month <%= a.month %>:<br />
+            <%= a.comment_list.first %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+    <div class="span-6">
+      <h3>
+        <%= link_to "Grades", "grades", :class => "link" %>
+      </h3>
+      <% Subject.all.each do |s| %>
+        <p>
+          <% if s.comment_list.first.present? %>
+            Regarding <%= s.description %>:<br />
+            <%= s.comment_list.first %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
     <div class="span-5">
       <h3>
-        <%= link_to c, c.downcase, :class => "link" %>
+        <%= link_to "Tests", "tests", :class => "link" %>
       </h3>
-      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...  </p>
+      <% Exam.all.each do |e| %>
+        <p>
+          <% if e.comment_list.first.present?  %>
+            Regarding <%= e.kind %>:<br />
+            <%= e.comment_list.first %>
+          <% end %>
+        </p>
+      <% end %>
     </div>
-  <% end %>
+
 </div>
-<%= button_to "Email Mr. Warai These Comments", send_comments_path %>
+
+<div class="clear">
+  
+</div>
+
+<% form_tag(send_comments_path, :remote => true, :name => "comment #{current_user.student.id}") do %>
+  <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback from Mr. Wairi?" %>
+  <%= text_field_tag "phone", "", :placeholder => "phone #" %>
+  <%= text_field_tag "email", "", :placeholder => "email" %>
+  <%= hidden_field_tag "model", "student" %>
+  <%= hidden_field_tag "object_id", current_user.student.id %>
+  <%= submit_tag "Email Mr. Wairi These Comments" %>
+<% end %>
+
