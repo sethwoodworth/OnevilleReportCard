@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20110429084919) do
   create_table "assessments", :force => true do |t|
     t.datetime "period"
     t.string   "score"
-    t.string   "standard_id"
+    t.integer  "standard_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

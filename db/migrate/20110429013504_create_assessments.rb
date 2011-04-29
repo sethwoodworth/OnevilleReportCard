@@ -3,7 +3,7 @@ class CreateAssessments < ActiveRecord::Migration
     create_table :assessments do |t|
       t.datetime :period
       t.string :score
-      t.string :standard_id
+      t.integer :standard_id
 
       t.timestamps
     end
