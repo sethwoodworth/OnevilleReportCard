@@ -152,5 +152,13 @@ Standard.all.each do |standard|
                       :period => Time.new(2011, (i+1)*3)) 
   end
 end
-Exam.create(:kind => "MCAS")
-Exam.create(:kind => "MAP")
+exam = Exam.create(:kind => "MCAS")
+3.times do |i|
+  ExamAssessment.create(:exam_id => exam.id, 
+                    :period => Time.new(2011, (i+1)*3)) 
+end
+exam = Exam.create(:kind => "MAP")
+3.times do |i|
+  ExamAssessment.create(:exam_id => exam.id, 
+                    :period => Time.new(2011, (i+1)*3)) 
+end

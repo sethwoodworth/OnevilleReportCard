@@ -3,6 +3,7 @@ class CreateSections < ActiveRecord::Migration
     create_table :sections do |t|
       t.references :exam_assessment
       t.string :name
+      t.integer :score
 
       t.timestamps
     end

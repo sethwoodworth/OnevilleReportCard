@@ -6,47 +6,75 @@
   <% possible_scores.each_pair do |abbreviation, description| %>
     <div class="<%="grade-#{abbreviation}"%>"> <%= description %> </div>
   <% end %>
-  
 </div>
 
-  <% tests = [1, 2, 3] %>
 
-  <%
-  tests_hash = { "MCAS" =>
+  <% tests_hash = { @exams.first.kind =>
     [{"Test" => 1}, {"Scores" => 220}, {"Percentile" => 80}],
 
-"MAP" =>
-    [{"Test" => 1}, {"Reading" => 210}, {"Language Arts" => 210}, {"Math" => 210}]}
+@exams.last.kind =>
+    [{"Test" => 1}, {"Reading" => 210}, {"Language Arts" => 210}, {"Math" => 210}]} %>
 
-%>
 
-  <% tests_hash.each do |subject, metrics| %>
+  <% @exam = @exams.first %>
   <div class="span-24 subject">
       <div class="subject-title">
-        <%= subject %>
+        <%= @exam.kind %>
       </div>
-    <table class= "subject-details span-15 scores">
-        <% metrics.each_with_index do |metric, i| %>
+      <table class= "subject-details span-15 scores">
+        <th class="metrics-and-scores">
+          Period
+        </th>
+        <th class="metrics-and-scores">
+          Score
+        </th>
+        <th class="metrics-and-scores">
+          Percentile
+        </th>
+        <% @exam.exam_assessments.each_with_index do |e, i| %>
           <tr class="metrics-and-scores">
-            <% metric.each_pair do |m, score| %>
-              <td>
-                 <%= m %>
-               </td>
-               <td class="grade-<%= score %>">
-                  <%= score %>
-                </td>
-               <td class="grade-<%= score %>">
-                  <%= score + 1 %>
-                </td>
-               <td class="grade-<%= score %>">
-                  <%= score + 2%>
-                </td>
+            <% 3.times do %>
+              <td class="grade-<%= 'score' %>">
+                <%= 1+i %>
+              </td>
             <% end %>
           </tr>
         <% end %>
-    </table>
+      </table>
     <div class="span-3 prepend-1">
       <%= text_area_tag "comment", "Write comments here" %>
     </div>
   </div>
-  <% end %>
+
+  <% @exam = @exams.last %>
+  <div class="span-24 subject">
+      <div class="subject-title">
+        <%= @exam.kind %>
+      </div>
+      <table class= "subject-details span-15 scores">
+        <th class="metrics-and-scores">
+          Period
+        </th>
+        <th class="metrics-and-scores">
+          Reading
+        </th>
+        <th class="metrics-and-scores">
+          Language Arts
+        </th>
+        <th class="metrics-and-scores">
+          Math
+        </th>
+          <% @exam.exam_assessments.each_with_index do |e, i| %>
+            <tr class="metrics-and-scores">
+              <% 4.times do  %>
+                <td class="grade-<%= 'score' %>">
+                  <%= 1+i %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+      </table>
+    <div class="span-3 prepend-1">
+      <%= text_area_tag "comment", "Write comments here" %>
+    </div>
+  </div>
