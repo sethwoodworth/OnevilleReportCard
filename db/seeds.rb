@@ -5,6 +5,9 @@ Anomaly.delete_all
 Subject.delete_all
 Standard.delete_all
 Assessment.delete_all
+Exam.delete_all
+ExamAssessment.delete_all
+Section.delete_all
 
 student = Student.create(:name => "Joe Cooper", :user_id => User.last.id)
 months = [3, 4, 5]
@@ -149,3 +152,5 @@ Standard.all.each do |standard|
                       :period => Time.new(2011, (i+1)*3)) 
   end
 end
+Exam.create(:kind => "MCAS")
+Exam.create(:kind => "MAP")
