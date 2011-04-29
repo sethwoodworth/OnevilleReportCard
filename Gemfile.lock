@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
     activesupport (3.0.5)
+    acts-as-taggable-on (2.0.6)
     arel (2.0.8)
     bcrypt-ruby (2.1.4)
     blueprintr (0.1.0)
@@ -79,6 +80,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   blueprintr
   cancan
   devise

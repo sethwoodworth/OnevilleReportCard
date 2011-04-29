@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_tagger
   has_one :student
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

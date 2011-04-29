@@ -9,6 +9,7 @@ gem 'sqlite3'
 
 gem 'devise'
 gem 'cancan'
+gem 'acts-as-taggable-on'
 
 # Use unicorn as the web server
 # gem 'unicorn'
