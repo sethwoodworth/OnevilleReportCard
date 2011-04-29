@@ -9,7 +9,7 @@
   
 </div>
 
-
+  
   <%
   subjects_hash = { "Reading and Literature" =>
     [{"Reads with accuracy, fluency, and expression" => "m"},
@@ -108,31 +108,23 @@
 
 %>
 
-  <% subjects_hash.each_pair do |subject, metrics| %>
+
+  <% @subjects.each do |subject| %>
   <div class="span-24 subject">
       <div class="subject-title">
-        <%= subject %>
+        <%= subject.description %>
       </div>
     <table class= "subject-details span-15 scores">
-        <% metrics.each do |metric| %>
+        <% subject.standards.each do |standard| %>
           <tr class="metrics-and-scores border">
-            <% metric.each_pair do |m, score| %>
               <td>
-                 <%= m %>
+                 <%= standard.description.html_safe %>
                </td>
-               <td class="grade-<%= score %>">
-                  <%= score %>
-                </td>
-               <td class="grade-<%= score %>">
-                  <%= score %>
-                </td>
-               <td class="grade-<%= score %>">
-                  <%= score %>
-                </td>
-               <td class="grade-<%= score %>">
-                  <%= score %>
-                </td>
-            <% end %>
+               <% standard.assessments.each do |a| %>
+                 <td class="grade-<%= a.score %>">
+                   <%= a.score %>
+                 </td>
+               <% end %>
           </tr>
         <% end %>
     </table>
@@ -141,4 +133,3 @@
     </div>
   </div>
   <% end %>
-

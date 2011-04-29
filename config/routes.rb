@@ -57,6 +57,8 @@ ReportCard::Application.routes.draw do
  match 'grades' => 'students#grades', :as => :grades
  match 'tests' => 'students#tests', :as => :tests
  match 'comments' => 'students#comments', :as => :comments
+ match 'send_comments' => 'students#send_comments', :as => :send_comments
+ 
 
 
   # See how all your routes lay out with "rake routes"

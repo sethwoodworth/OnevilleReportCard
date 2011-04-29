@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  period: 2011-04-28 21:35:04
+  score: MyString
+  standard_id: MyString
+
+two:
+  period: 2011-04-28 21:35:04
+  score: MyString
+  standard_id: MyString
