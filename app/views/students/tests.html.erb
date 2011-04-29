@@ -4,7 +4,7 @@
 
 <div id="standards-explanation" class="span-6">
   <% possible_scores.each_pair do |abbreviation, description| %>
-    <div class="<%="grade-#{abbreviation}"%>"> <span class="metric"><%= abbreviation %> </span> - <%= description %> </div>
+    <div class="<%="grade-#{abbreviation}"%>"> <%= description %> </div>
   <% end %>
   
 </div>

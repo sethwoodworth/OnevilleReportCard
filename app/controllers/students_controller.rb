@@ -8,6 +8,10 @@ class StudentsController < ApplicationController
     @attendances = Attendance.all
   end
 
+  def tests
+    @exams = Exam.all
+  end
+
   def grades
     @subjects = Subject.all
   end
