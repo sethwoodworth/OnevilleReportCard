@@ -14,6 +14,9 @@ months = [3, 4, 5]
 months.each do |m|
   Attendance.create({:student_id => student.id, :month =>  m, :year => 2011})
 end
+
+
+
 Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.new(2011, 4, 21))
 Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.new(2011, 4, 6))
 Anomaly.create(:attendance_id => Attendance.first.id, :kind => "late", :moment => Time.new(2011, 4, 4, 9), :school_date => Time.new(2011, 4, 4))
