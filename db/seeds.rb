@@ -15,12 +15,10 @@ months.each do |m|
   Attendance.create({:student_id => student.id, :month =>  m, :year => 2011})
 end
 
-
-t = Time.new(2011, 4, 21)
-Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.new(2011, 4, 21))
-Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.new(2011, 4, 6))
-Anomaly.create(:attendance_id => Attendance.first.id, :kind => "late", :moment => Time.new(2011, 4, 4, 9), :school_date => Time.new(2011, 4, 4))
-Anomaly.create(:attendance_id => Attendance.all[1].id, :kind => "late", :moment => Time.new(2011, 5, 5, 9), :school_date => Time.new(2011, 5, 5))
+Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.local(2011, 4, 21))
+Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.local(2011, 4, 6))
+Anomaly.create(:attendance_id => Attendance.first.id, :kind => "late", :moment => Time.local(2011, 4, 4, 9), :school_date => Time.local(2011, 4, 4))
+Anomaly.create(:attendance_id => Attendance.all[1].id, :kind => "late", :moment => Time.local(2011, 5, 5, 9), :school_date => Time.local(2011, 5, 5))
 
 s = Subject.create(:description => "Reading and Literature")
 
@@ -152,20 +150,20 @@ Standard.all.each do |standard|
   4.times do |i|
     Assessment.create(:standard_id => standard.id, 
                       :score => @scores[rand(@scores.size)], 
-                      :period => Time.new(2011, (i+1)*3)) 
+                      :period => Time.local(2011, (i+1)*3)) 
   end
 end
 exam = Exam.create(:kind => "MCAS")
 3.times do |i|
   e = ExamAssessment.create(:exam_id => exam.id, 
-                    :period => Time.new(2011, (i+1)*3)) 
+                    :period => Time.local(2011, (i+1)*3)) 
   Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Score")
   Section.create(:exam_assessment_id => e.id, :score => rand(100), :name => "Percentile")
 end
 exam = Exam.create(:kind => "MAP")
 3.times do |i|
   e = ExamAssessment.create(:exam_id => exam.id, 
-                    :period => Time.new(2011, (i+1)*3)) 
+                    :period => Time.local(2011, (i+1)*3)) 
   Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Reading")
   Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Language Arts")
   Section.create(:exam_assessment_id => e.id, :score => rand(250), :name => "Math")
