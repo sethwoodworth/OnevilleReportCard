@@ -58,6 +58,7 @@ ReportCard::Application.routes.draw do
  match 'tests' => 'students#tests', :as => :tests
  match 'comments' => 'students#comments', :as => :comments
  match 'send_comments' => 'students#send_comments', :as => :send_comments
+ match 'save_comment' => 'students#save_comment', :as => :save_comment
  
 
 

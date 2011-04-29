@@ -9,106 +9,6 @@
   
 </div>
 
-  
-  <%
-  subjects_hash = { "Reading and Literature" =>
-    [{"Reads with accuracy, fluency, and expression" => "m"},
-      {"Understands and utilizes new vocabulary" => "n"},
-      {"Comprehends literal meaning: identifies and summarizes main ideas, supporting details, recalls facts and events" => "s"},
-      {"Comprehends inferential meaning: makes predictions, understands cause and effect" => "m"},
-      {"Understands the elements of a variety of genres of literature" => "m"},
-      {"Identifies and makes judgments about characters, plot, conflict, and resolution" => "m"},
-      {"Identifies and analyzes elements of poetry and drama" => "na"}],
-
-"Language and Composition" =>
-    [{"Communicates effectively in oral presentations" => "m"},
-      {"Poses questions, listens to others, and contributes ideas" => "m"},
-      {"Uses correct capitalization and punctuation in written work" => "m"},
-      {"Applies knowledge of spelling rules and patterns to everyday writing" => "m"},
-      {"Uses standard English in written work" => "m"},
-      {"Identifies parts of speech Plans and develops an organized writing piece" => "m"},
-      {"Writes an organized piece with purpose, clarity, and details" => "m"},
-      {"Gathers and analyzes information for research" => "m"},
-      {"Uses a variety of sentence structures" => "m"},
-      {"Effectively uses prefixes, suffixes, and root words" => "m"}],
-
-"History and Social Science"  =>
-    [{"Demonstrates understanding of social studies concepts and content" => "m"},
-      {"Interprets and uses data from maps, charts and tables" => "m"},
-      {"Communicates understanding of social studies concepts using correct vocabulary, both orally and in writing" => "m"}],
-
-"Mathematics"=>
-    [{"Demonstrates mastery of basic facts (+, -)" => "m"},
-      {"Demonstrates mastery of basic facts (x, ÷)" => "m"},
-      {"Demonstrates understanding of place value through millions and thousandths" => "m"},
-      {"Estimates numerical operations using whole numbers, decimals, and fractions" => "m"},
-      {"Solves multi-digit numerical operations" => "m"},
-      {"Understands and uses appropriate problem-solving strategies involving whole numbers, fractions, and patterns" => "m"},
-      {"Uses data to construct and interpret graphs" => "m"},
-      {"Demonstrates knowledge of geometric concepts" => "m"},
-      {"Understands and applies fraction concepts by adding, subtracting, multiplying, comparing, and ordering" => "m"},
-      {"Understands and applies decimals, ratios, and percents" => "m"},
-      {"Uses and converts simple units of measurement" => "m"}],
-
-"Science" =>
-    [{"Predicts probability of outcomes" => "m"},
-      {"Demonstrates understanding of the science concepts and content" => "m"},
-      {"Understands and applies the scientific method" => "m"},
-      {"Communicates scientific thinking using correct vocabulary, both orally and in writing" => "m"}],
-
-"Art"=>
-    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
-      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
-      {"Demonstrates understanding of skills and concepts" => "m"},
-      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
-
-"Physical Education" =>
-    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
-      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
-      {"Demonstrates understanding of skills and concepts" => "m"},
-      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
-
-"Library/Media" =>
-    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
-      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
-      {"Demonstrates understanding of skills and concepts" => "m"},
-      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
-
-"Music"=>
-    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
-      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
-      {"Demonstrates understanding of skills and concepts" => "m"},
-      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
-
-"Instrumental music"=>
-    [{"Participates appropriately, demonstrates effort, and cooperates" => "m"},
-      {"Respects rules, routines, school personnel, peers, and school property" => "m"},
-      {"Demonstrates understanding of skills and concepts" => "m"},
-      {"Demonstrates ability to use skills and concepts effectively" => "m"}],
-
-"Conduct/Social Behavior" =>
-    [{"Follows school and classroom rules" => "m"},
-      {"Respects school personnel" => "m"},
-      {"Respects peers" => "m"},
-      {"Demonstrates self-control" => "m"},
-      {"Respects school property/materials" => "m"},
-      {"Assumes responsibility for his/her own actions" => "m"}],
-
-"Work Habits" =>
-    [{"Demonstrates effort" => "m"},
-      {"Works cooperatively" => "m"},
-      {"Works well independently" => "m"},
-      {"Completes tasks in allotted time" => "m"},
-      {"Organizes materials/workspace" => "m"},
-      {"Produces neat and careful work" => "m"},
-      {"Listens attentively" => "m"},
-      {"Follows oral and written directions" => "m"},
-      {"Participates appropriately in class" => "m"},
-      {"Completes and returns homework on time" => "m"} ]}
-
-%>
-
-
   <% @subjects.each do |subject| %>
   <div class="span-24 subject">
       <div class="subject-title">
@@ -129,7 +29,16 @@
         <% end %>
     </table>
     <div class="prepend-1 span-3">
-      <%= text_area_tag "comment", "Write comments here" %>
+      <% form_tag(save_comment_path, :remote => true, :name => "comment #{subject.id}") do %>
+        <% if subject.comment_list.blank? %>
+          <%= text_area_tag "comment", "Write comments here" %>
+        <% else %>
+          <%= text_area_tag "comment", subject.comment_list.first %>
+        <% end %>
+        <%= hidden_field_tag "model", "subject" %>
+        <%= hidden_field_tag "object_id", subject.id %>
+        <%= submit_tag "Save changes" %>
+      <% end %>
     </div>
   </div>
   <% end %>

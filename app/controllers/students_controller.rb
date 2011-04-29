@@ -27,4 +27,22 @@ class StudentsController < ApplicationController
     #TeacherMailer.comments_email(@user).deliver
   end
 
+  def save_comment
+    if params[:model] == "student"
+      o = current_user.student
+    elsif params[:model] == "exam"
+      o = Exam.find(params[:object_id])
+    elsif params[:model] == "subject"
+      o = Subject.find(params[:object_id])
+    elsif params[:model] == "attendance"
+      o = Attendance.find(params[:object_id])
+    end
+    o.comment_list = [params[:comment]]
+    if o.save
+      redirect_to :back
+    else
+      redirect_to :back
+    end
+  end
+
 end

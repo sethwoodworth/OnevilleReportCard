@@ -84,7 +84,16 @@
 
 </div>
 <div class="column span-3 attendance-comment">
-  <%= text_area_tag "comment", "Write comments here" %>
+      <% form_tag(save_comment_path, :remote => true, :name => "comment #{attendance.id}") do %>
+        <% if attendance.comment_list.blank? %>
+          <%= text_area_tag "comment", "Write comments here" %>
+        <% else %>
+          <%= text_area_tag "comment", attendance.comment_list.first %>
+        <% end %>
+        <%= hidden_field_tag "model", "attendance" %>
+        <%= hidden_field_tag "object_id", attendance.id %>
+        <%= submit_tag "Save changes" %>
+      <% end %>
 </div>
   </div>
 <% end %>

@@ -32,6 +32,13 @@
     </div>
   </div>
   <div class="prepend-1 span-3">
-    <%= text_area_tag "comment", "Write comments here" %>
+    <%= form_tag(save_comment_path, :remote => true) %>
+    <% if current_user.student.comment_list.blank? %>
+      <%= text_area_tag "comment", "Write comments here" %>
+    <% else %>
+      <%= text_area_tag "comment", current_user.student.comment_list.first %>
+    <% end %>
+    <%= hidden_field_tag "model", "student" %>
+    <%= submit_tag "Save changes" %>
   </div>
 </div>
