@@ -26,7 +26,7 @@
         <% @exam.exam_assessments.each do |ea|  %>
           <tr>
             <td>
-              <%= Time.new(ea.period.year, ea.period.month).strftime('%b  %Y') %>
+              <%= Time.local(ea.period.year, ea.period.month).strftime('%b  %Y') %>
             </td>
           <% ea.sections.each do |s| %>
             <td>
