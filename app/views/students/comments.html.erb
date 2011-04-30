@@ -1,74 +1,69 @@
-<br />
-<h2> Your Comments </h2>
+<h2 class="shallow-bottom heading"> Your Comments </h2>
+<hr />
 
     <div class="span-6">
       <h3>
         <%= link_to "General", "general", :class => "link" %>
       </h3>
-      <ul class="comment-summary">
-          <% if current_user.student.comment_list.first.present? %>
-            <li> 
-              <%= current_user.student.comment_list.first %>
-            </li>
-          <% end %>
-      </ul>
+        <% if current_user.student.comment_list.first.present? %>
+          <div> <%= current_user.student.comment_list.first %> </div>
+        <% end %>
     </div>
     <div class="span-6">
       <h3>
         <%= link_to "Attendance", "attendance", :class => "link" %>
       </h3>
-      <ul class="comment-summary">
         <% Attendance.all.each do |a| %>
             <% if a.comment_list.first.present? %>
-              <li> 
-                Month <%= a.month %>:
-              </li>
-            <%= a.comment_list.first %>
+              <div> Month <%= a.month %>: </div>
+              <div><%= a.comment_list.first %></div>
             <% end %>
         <% end %>
-      </ul>
     </div>
     <div class="span-6">
       <h3>
         <%= link_to "Grades", "grades", :class => "link" %>
       </h3>
-      <ul class="comment-summary">
         <% Subject.all.each do |s| %>
             <% if s.comment_list.first.present? %>
-              <li>
-                <%= s.description %>:<br />
-                <%= s.comment_list.first %>
-              </li>
+                <div><%= s.description %>:</div>
+                <div><%= s.comment_list.first %></div>
             <% end %>
         <% end %>
-      </ul>
     </div>
     <div class="span-5">
       <h3>
         <%= link_to "Tests", "tests", :class => "link" %>
       </h3>
-      <ul class="comment-summary">
       <% Exam.all.each do |e| %>
           <% if e.comment_list.first.present?  %>
-            <li>
-              <%= e.kind %>:<br />
-            </li>
-              <%= e.comment_list.first %>
+            <div><%= e.kind %>:</div>
+            <div>"<%= e.comment_list.first %>"</div>
           <% end %>
       <% end %>
-      </ul>
     </div>
 
 </div>
+<hr />
 
-<div id="send-comments" class="clear">
+<div class="clear sent-comments <%=current_user.comments_sent?%>">
+    <a href="#">
+      <h2 id="add-more-comments">Your comments have been sent! <br /><span class="small-text">(If you forgot something, click here to send additional comments)</span> </h2>
+    </a>
+  </div>
+
+<div id="send-comments" class="clear <%= !current_user.comments_sent?%>">
   <% form_tag(send_comments_path, :remote => true, :name => "comment #{current_user.student.id}") do %>
     <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback for Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
-    Your contact info: <br />
-    <%= text_field_tag "phone", "", :placeholder => "phone #" %> <br />
-    <%= text_field_tag "email", "", :placeholder => "email" %> <br />
+    <div id="contact-info" class="span-15">
+      <h2 class="shallow-bottom"> Email Your Comments </h2>
+      <%= text_field_tag "phone", "", :placeholder => "phone #" %> 
+      <%= text_field_tag "email", "", :placeholder => "email" %> <br />
+    </div>
     <%= hidden_field_tag "student", current_user.student.name %>
-    <%= submit_tag "Email Mr. Wairi These Comments" %>
+    <div id="submit-comments-button" class="submit-button">
+      <%= submit_tag "Email Mr. Wairi These Comments" %>
+    </div>
   <% end %>
 </div>
 

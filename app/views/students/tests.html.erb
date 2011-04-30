@@ -1,25 +1,20 @@
-<br />
-<h2 class="span-16"> Tests </h2>
+<h2 class="span-16 heading shallow-bottom"> Tests </h2>
 <% possible_scores = {'m' => "High Scoring", 's' => "Medium Scoring", 'n' => "Low scoring", 'na' => "Test not taken"} %>
 
-<div id="standards-explanation" class="span-6">
-  <% possible_scores.each_pair do |abbreviation, description| %>
-    <div class="<%="grade-#{abbreviation}"%>"> <%= description %> </div>
-  <% end %>
-</div>
 
+<hr />
   <% @exams.each do |exam| %>
     <% @exam = exam %>
   <div class="span-24 subject">
       <div class="subject-title">
         <%= @exam.kind %>
       </div>
-      <table class= "subject-details span-15 scores">
-        <th class="metrics-and-scores">
+      <table class= "exam-details span-15 scores">
+        <th>
           Period
         </th>
         <% @exam.exam_assessments.map { |ea| ea.sections}.flatten.map {|s| s.name }.uniq.each do |section| %>
-        <th class="metrics-and-scores">
+        <th>
           <%= section %>
         </th>
         <% end %>
@@ -36,7 +31,7 @@
           </tr>
         <% end %>
       </table>
-    <div class="prepend-1 span-3">
+    <div class="prepend-1 span-7">
       <% form_tag(save_comment_path, :remote => true) do %>
         <% if exam.comment_list.blank? %>
           <%= text_area_tag "comment", "", :placeholder => "Write comments here" %>
@@ -45,7 +40,9 @@
         <% end %>
         <%= hidden_field_tag "model", "exam" %>
         <%= hidden_field_tag "object_id", exam.id %>
-        <%= submit_tag "Save changes" %>
+        <div class="submit-button">
+          <%= submit_tag "Save Comment" %>
+        </div>
       <% end %>
     </div>
 

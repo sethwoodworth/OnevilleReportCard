@@ -1,5 +1,19 @@
-#header{
+html{
+background-color: #FFDFAA;
+}
+#header-background {
   background-color: #C3D9FF; 
+  height:50px;
+  position:absolute;
+  width:100%;
+  z-index:-1;
+  border-bottom: solid #6C8082 2px;
+}
+#header{
+  border-bottom: solid #6C8082 2px;
+  background-color: #C3D9FF; 
+  height:50px;
+  margin-bottom:10px;
 }
 #comments{
   background-color: #E5E5E5;
@@ -17,63 +31,99 @@ li{
   margin-top:15px;
 }
 #bottom-navigation {
+  text-align: center;
   margin-top: 10px;
+  width: 100%;
+  height: 30px;
   background-color: #8EA2A4;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding: 0px;
+  padding-top: 5px;
+  margin-bottom: 8px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: solid 2px #6C8082;
+
 }
 #bottom-navigation li{
-  padding: 4px;
   border: 1px #2B2EC1 solid;
-  list-style:none;
-  display:inline;
+  margin-right: 20px;
+  padding: 5px;
+  display: inline;
   background-color: #2B2EC1;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  text-align:center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 #bottom-navigation li a{
+  padding: 10px;
   font-size:15px;
   color:white;
   text-decoration:none;
 }
 
 #bottom-navigation li.active{
-  background-color:white;
+  background-color:#C3D9FF;
+}
+#bottom-navigation li a:hover {
+  color:black;
 }
 #bottom-navigation li.active a{
   color:black;
 }
 #sign-in{
- float:right; 
+  float:right; 
 }
 .month-of-attendance{
   margin-top:10px;
 }
 #title {
-  margin-top:45px;
+  margin-bottom: 10px;
 }
 
-#footer-container{
-    z-index: 1;
-    margin-left:auto;
-    margin-right:auto;
-    width:960px;
-}
 #footer {
   width:960px;
   position:fixed;
   bottom:0px;
-  padding-top: 2px;
-  background-color: #FFFFFF;
+  z-index: 2;
+}
+#footer-background {
+  width:100%;
+  position:fixed;
+  bottom:0px;
+  padding-top: 5px;
+  z-index: 1;
+  height:30px;
+  background-color: #EBD3ED;
+  border-top: solid 2px #6C8082;
+}
+
+a {
+  text-decoration: none !important;
 }
 #content-wrapper{
-  background-color: white;
+  background-color: #FFDFAA;
   padding-bottom:100px;
 }
 textarea {
   width:260px !important; height:130px !important; padding:5px !important; margin:0px !important;
-  border: 3px double  #2B2EC1 !important;
+  border: 3px solid #2B2EC1 !important;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #E1F7FF !important;
+}
+input {
+  padding-left:2px;
+  border: 1px solid #2B2EC1 !important;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #E1F7FF !important;
+}
+
+textarea:hover, textarea:focus, input:hover, input:focus {
+  background-color: #C3D9FF !important;
 }
 .subject {
   padding: 0px !important;
@@ -98,10 +148,10 @@ textarea {
 }
 .clickable.hovered {
   background-color:#C3D9FF !important;
-  color:#2B2EC1 !important;
 }
 #intro-text {
   font-size:14px;
+  margin-bottom: 20px;
 }
 .metric {
   background-color:black;
@@ -116,7 +166,19 @@ textarea {
   margin-left: 0;
   padding-left: 0;
 }
+.subject-details, .exam-details td {
+  background-color:white;
+}
+
+.teacher-image img {
+  padding: 2px;
+  border:2px solid #6C7F81;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
 .grade-m {
+  background-color: white;
 }
 .grade-s {
   background-color: #FEFA95;
@@ -141,8 +203,14 @@ textarea {
 #notes-from-teacher {
   font-style:italic; 
 }
-
-#calendar {
+.fc-border-separate {
+  border: 2px solid #6C7F81;
+}
+.fc-day-number {
+  padding: right 9px !important;
+}
+.fc-border-separate tbody {
+  background-color: white;
 }
 .fc-header-right {
 }
@@ -182,10 +250,10 @@ textarea {
 
 /*hmmm*/
 table.scores td {
-	border-width: 1px;
-	padding-left: 3px;
-	border-style: ridge;
-	border-color: gray;
+  border-width: 1px;
+  padding-left: 3px;
+  border-style: ridge;
+  border-color: gray;
 }
 
 .attendance-comment {
@@ -194,28 +262,34 @@ table.scores td {
 }
 .link {
   text-decoration:none;
-  color: white;
-  background-color: #2B2EC1;
-  padding: 5px;
+  color: black;
+  background-color:#E1F7FF;
+  border: 1px #2B2EC1 solid;
+  padding: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 .link:hover {
-  background-color:#C3D9FF;
-  color:#2B2EC1;
+  background-color: #EBD3ED;
+  color:black;
   border: 1px #2B2EC1 solid;
 }
 
 /*match placeholder/watermark padding to border+padding for input element*/
 label.placeholder {
-cursor: text;
-padding: 4px 4px 4px 4px;
-color: #999999;
+  cursor: text;
+  padding: 4px 4px 4px 4px;
+  color: #999999;
 }
 /* html5 placeholder support */
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-color:#999999;
+  color:#999999;
 }
 input:placeholder, textarea:placeholder {
-color:#999999;
+  color:#999999;
 }
 
 #final-comment{
@@ -232,4 +306,63 @@ color:#999999;
   padding-bottom:0px;
   margin-bottom:0px;
 }
+.sent-comments {
+  padding-left: 5px;
+  background-color: #EBD3ED;
+  border: solid 2px #6C8082;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.sent-comments:hover {
+  background-color: #C3D9FF;
+}
+#add-more-comments {
+  margin:0px;
+}
+.false {
+  display: none;
+}
+.small-text {
+  font-size:15px;
+}
 
+.flash {
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: solid 2px #6C8082;
+  
+}
+
+#notice { background-color: #A4E7A0; border: 1px solid #26722D; }
+#error { background-color: #F0A8A8; border: 1px solid #900; }
+#notice, #error { width: 100%; margin-bottom: 5px;}
+#notice p, #error p { padding: 0; font-size: .75em; margin: 0px; padding:5px; color: #000; }
+#notice a, #error a { text-decoration: none; padding: 0 3px; }
+#notice a { border: 1px solid #26722D; color: #26722D; }
+#error a { border: 1px solid #900; color: #900; }
+#notice a:hover, #error a:hover { color: #333; border: 1px solid #333; }
+
+.center {
+  text-align:center !important;
+}
+#absence-summary {
+  float: right;
+}
+#absence-summary {
+  text-align: right;
+}
+.submit-button {
+  float:right;
+  margin-top: 7px;
+}
+#submit-comments-button {
+  float:none;
+}

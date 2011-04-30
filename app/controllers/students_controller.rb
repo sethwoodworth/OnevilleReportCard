@@ -18,10 +18,9 @@ class StudentsController < ApplicationController
 
   def send_comments
     if TeacherMailer.comments_email(params[:comment], params[:student], params[:email], params[:phone]).deliver
-      flash[:notice] = "Your comments have been sent to Mr. Wairi!" 
+      current_user.update_attribute(:comments_sent, true)
       redirect_to comments_path
     else
-      flash[:error] = "Something went wrong..." 
       redirect_to comments_path
     end
     #TeacherMailer.comments_email(@user).deliver
@@ -39,8 +38,10 @@ class StudentsController < ApplicationController
     end
     o.comment_list = [params[:comment]]
     if o.save
+      flash[:notice] = "Your comment has been saved!" 
       redirect_to :back
     else
+      flash[:alert] = "Something went wrong..." 
       redirect_to :back
     end
   end

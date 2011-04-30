@@ -18,22 +18,25 @@
 
     <%= javascript_include_tag "jquery-ui-1.8.11.custom.min" %>
     <%= javascript_include_tag "fullcalendar.min" %>
+    <%= javascript_include_tag "main" %>
     <%= javascript_include_tag "placeholder" %>
     <%= csrf_meta_tag %>
 
   </head>
   <body>
+    <div id="header-background">
+      <div id="header-background-child">
+      </div> 
+    </div>
     <div id="container">
       <div id="header" class="span-24">
-        <div id="student-image" class="span-3">
-          <%= image_tag "student_picture.jpg" %>
-        </div>
-        <h1 id="title" class="prepend-3 span-11"><%= current_user.name %>'s Report Card</h1>
-        <div id="sign-in" class="span-1">
+        <h2 id="title" class="span-11">Report Card</h2>
+        <div id="sign-in" class="span-2">
           <% if user_signed_in? %>
-            <%= link_to "logout", destroy_user_session_path %>
+          <%= current_user.name %>
+          <%= link_to "logout", destroy_user_session_path, :class => "link" %>
           <% else %>
-            <%= link_to "login", new_user_session_path %>
+            <%= link_to "login", new_user_session_path, :class => "link" %>
           <% end %>
         </div>
       </div>
@@ -41,11 +44,15 @@
       <div class="span-24" id="content-wrapper">
 
         <div id="content">
+          <%= render :partial => "notice_div.html.erb" %>
           <%= yield %>
         </div>
 
+        <%= render :partial => "nav" %>
       </div>
     </div>
-    <%= render :partial => "nav" %>
+
+    <div id="footer-background">
+    </div>
   </body>
 </html>
