@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
   end
 
   def send_comments
-    if TeacherMailer.comments_email.deliver
+    if TeacherMailer.comments_email(params[:comment], params[:student], params[:email], params[:phone]).deliver
       flash[:notice] = "Your comments have been sent to Mr. Wairi!" 
       redirect_to comments_path
     else

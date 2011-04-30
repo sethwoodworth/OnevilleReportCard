@@ -1,5 +1,12 @@
 <br />
-<h2>Attendance</h2>
+<h2 class="shallow-bottom">Attendance</h2>
+<div>
+  Total absences: <%= Attendance.all.map{|a| a.absences}.flatten.count %>
+</div>
+<div>
+  Total days late: <%= Attendance.all.map{|a| a.lates}.flatten.count %>
+</div>
+
 
 <% @attendances.each do |attendance| %>
   <% month = attendance.month %>

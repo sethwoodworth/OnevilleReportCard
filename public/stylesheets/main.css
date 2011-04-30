@@ -228,4 +228,8 @@ color:#999999;
 .comment-summary li{
   list-style-type: circle;
 }
+.shallow-bottom {
+  padding-bottom:0px;
+  margin-bottom:0px;
+}
 
