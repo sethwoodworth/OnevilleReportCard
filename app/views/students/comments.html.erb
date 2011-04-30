@@ -1,38 +1,48 @@
 <h2 class="shallow-bottom heading"> Your Comments </h2>
 <hr />
-
-    <div class="span-6">
+<div class="comment-summary">
+    <div class="span-7 text-box">
         <% if current_user.student.comment_list.first.present? %>
-          <div> <%= current_user.student.comment_list.first %> </div>
+          <b>General:</b>
+          <span class="comment-category">General</span>
+          <hr />
+          <div> "<%= current_user.student.comment_list.first %>" </div>
         <% end %>
     </div>
-    <div class="span-6">
         <% Attendance.all.each do |a| %>
             <% if a.comment_list.first.present? %>
-              <div> Month <%= a.month %>: </div>
-              <div><%= a.comment_list.first %></div>
+              <div class="span-7 text-box">
+                <b> Month <%= a.month %>: </b>
+                <span class="comment-category">Attendance</span>
+                <hr />
+                <div>"<%= a.comment_list.first %>"</div>
+              </div>
             <% end %>
         <% end %>
-    </div>
-    <div class="span-6">
         <% Subject.all.each do |s| %>
             <% if s.comment_list.first.present? %>
-                <div><%= s.description %>:</div>
-                <div><%= s.comment_list.first %></div>
+              <div class="span-7 text-box">
+                <b><%= s.description %>:</b>
+                <span class="comment-category">Grades</span>
+                <hr />
+                <div>"<%= s.comment_list.first %>"</div>
+              </div>
             <% end %>
         <% end %>
-    </div>
-    <div class="span-5">
       <% Exam.all.each do |e| %>
           <% if e.comment_list.first.present?  %>
-            <div><%= e.kind %>:</div>
-            <div>"<%= e.comment_list.first %>"</div>
+            <div class="span-7 text-box">
+              <b><%= e.kind %>:</b>
+              <span class="comment-category">Tests</span>
+              <hr />
+              <div>"<%= e.comment_list.first %>"</div>
+            </div>
           <% end %>
       <% end %>
-    </div>
 
 </div>
-<hr />
+<br / class="clear">
+<hr / class="space-up-top">
 
 <div class="clear sent-comments <%=current_user.comments_sent?%>">
     <a href="#">

@@ -1,6 +1,6 @@
 <br />
 <div>
-  <div id="intro-text" class="span-22">
+  <div id="intro-text" class="span-22 text-box">
     <p> <b>Welcome to <%= current_user.first_name %>'s report card! </b> <br />
    Here, you can look at <%= current_user.first_name %>'s basic academic performance and attendance record.  Want to leave comments for Mr. Wairi? Click "send" on the last page.  (All the comments that you have written will be emailed to Mr. Wairi.) Use the highlighted buttons at the bottom of the screen to see another page!  </p>
 
@@ -9,11 +9,11 @@
     <span class="teacher-image">
       <%= image_tag "josh.png", :class => "span-4" %>
     </span>
-    <h4 class="span-10">
-      <b> Here's what Mr. Wairi has to say about <%= current_user.first_name %>'s performance this term: </b>
-    </h4>
 
-    <div id="notes-from-teacher">
+    <div id="notes-from-teacher" class="text-box">
+      <h4 class="span-10">
+        <b> Here's what Mr. Wairi has to say about <%= current_user.first_name %>'s performance this term: </b>
+      </h4>
        <ul>
          <li>
            Lorem ipsum dolor sit amet, consectetur magna aliqua. 
