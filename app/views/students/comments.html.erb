@@ -67,10 +67,11 @@
 
 <% form_tag(send_comments_path, :remote => true, :name => "comment #{current_user.student.id}") do %>
   <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback from Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
+  Your contact info: <br />
   <%= text_field_tag "phone", "", :placeholder => "phone #" %> <br />
   <%= text_field_tag "email", "", :placeholder => "email" %> <br />
   <%= hidden_field_tag "model", "student" %>
-  <%= hidden_field_tag "object_id", current_user.student.id %>
+  <%= hidden_field_tag "object_id", current_user.student.id %><br />
   <%= submit_tag "Email Mr. Wairi These Comments" %>
 <% end %>
 
