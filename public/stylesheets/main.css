@@ -218,3 +218,14 @@ input:placeholder, textarea:placeholder {
 color:#999999;
 }
 
+#final-comment{
+  margin-right:24px !important;
+
+}
+.comment-summary {
+  padding-left: 0; 
+}
+.comment-summary li{
+  list-style-type: circle;
+}
+

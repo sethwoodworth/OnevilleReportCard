@@ -5,50 +5,58 @@
       <h3>
         <%= link_to "General", "general", :class => "link" %>
       </h3>
-      <p> 
-        <% if current_user.student.comment_list.first.present? %>
-          <%= current_user.student.comment_list.first %>
-        <% end %>
-      </p>
+      <ul class="comment-summary">
+          <% if current_user.student.comment_list.first.present? %>
+            <li> 
+              <%= current_user.student.comment_list.first %>
+            </li>
+          <% end %>
+      </ul>
     </div>
     <div class="span-6">
       <h3>
         <%= link_to "Attendance", "attendance", :class => "link" %>
       </h3>
-      <% Attendance.all.each do |a| %>
-        <p>
-          <% if a.comment_list.first.present? %>
-            Regarding month <%= a.month %>:<br />
+      <ul class="comment-summary">
+        <% Attendance.all.each do |a| %>
+            <% if a.comment_list.first.present? %>
+              <li> 
+                Month <%= a.month %>:
+              </li>
             <%= a.comment_list.first %>
-          <% end %>
-        </p>
-      <% end %>
+            <% end %>
+        <% end %>
+      </ul>
     </div>
     <div class="span-6">
       <h3>
         <%= link_to "Grades", "grades", :class => "link" %>
       </h3>
-      <% Subject.all.each do |s| %>
-        <p>
-          <% if s.comment_list.first.present? %>
-            Regarding <%= s.description %>:<br />
-            <%= s.comment_list.first %>
-          <% end %>
-        </p>
-      <% end %>
+      <ul class="comment-summary">
+        <% Subject.all.each do |s| %>
+            <% if s.comment_list.first.present? %>
+              <li>
+                <%= s.description %>:<br />
+                <%= s.comment_list.first %>
+              </li>
+            <% end %>
+        <% end %>
+      </ul>
     </div>
     <div class="span-5">
       <h3>
         <%= link_to "Tests", "tests", :class => "link" %>
       </h3>
+      <ul class="comment-summary">
       <% Exam.all.each do |e| %>
-        <p>
           <% if e.comment_list.first.present?  %>
-            Regarding <%= e.kind %>:<br />
-            <%= e.comment_list.first %>
+            <li>
+              <%= e.kind %>:<br />
+            </li>
+              <%= e.comment_list.first %>
           <% end %>
-        </p>
       <% end %>
+      </ul>
     </div>
 
 </div>
@@ -58,9 +66,9 @@
 </div>
 
 <% form_tag(send_comments_path, :remote => true, :name => "comment #{current_user.student.id}") do %>
-  <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback from Mr. Wairi?" %>
-  <%= text_field_tag "phone", "", :placeholder => "phone #" %>
-  <%= text_field_tag "email", "", :placeholder => "email" %>
+  <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback from Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
+  <%= text_field_tag "phone", "", :placeholder => "phone #" %> <br />
+  <%= text_field_tag "email", "", :placeholder => "email" %> <br />
   <%= hidden_field_tag "model", "student" %>
   <%= hidden_field_tag "object_id", current_user.student.id %>
   <%= submit_tag "Email Mr. Wairi These Comments" %>
