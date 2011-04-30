@@ -2,17 +2,11 @@
 <hr />
 
     <div class="span-6">
-      <h3>
-        <%= link_to "General", "general", :class => "link" %>
-      </h3>
         <% if current_user.student.comment_list.first.present? %>
           <div> <%= current_user.student.comment_list.first %> </div>
         <% end %>
     </div>
     <div class="span-6">
-      <h3>
-        <%= link_to "Attendance", "attendance", :class => "link" %>
-      </h3>
         <% Attendance.all.each do |a| %>
             <% if a.comment_list.first.present? %>
               <div> Month <%= a.month %>: </div>
@@ -21,9 +15,6 @@
         <% end %>
     </div>
     <div class="span-6">
-      <h3>
-        <%= link_to "Grades", "grades", :class => "link" %>
-      </h3>
         <% Subject.all.each do |s| %>
             <% if s.comment_list.first.present? %>
                 <div><%= s.description %>:</div>
@@ -32,9 +23,6 @@
         <% end %>
     </div>
     <div class="span-5">
-      <h3>
-        <%= link_to "Tests", "tests", :class => "link" %>
-      </h3>
       <% Exam.all.each do |e| %>
           <% if e.comment_list.first.present?  %>
             <div><%= e.kind %>:</div>

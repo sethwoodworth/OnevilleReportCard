@@ -22,12 +22,13 @@
 
   </head>
   <body>
+    <div id="header-background">
+      <div id="header-background-child">
+      </div> 
+    </div>
     <div id="container">
       <div id="header" class="span-24">
-        <div id="student-image" class="span-3">
-          <%= image_tag "student_picture.jpg" %>
-        </div>
-        <h1 id="title" class="prepend-3 span-11">Report Card</h1>
+        <h1 id="title" class="span-11">Report Card</h1>
         <div id="sign-in" class="span-1">
           <% if user_signed_in? %>
             <%= link_to "logout", destroy_user_session_path %>
