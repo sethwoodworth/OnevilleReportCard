@@ -10,13 +10,13 @@ background-color: #FFF;
   position:absolute;
   width:100%;
   z-index:-1;
-  background: white;
+  background-color: #FFDFAA;
   border-bottom: 3px solid #E0E3EE;
   box-shadow: #EEE 0 0 10px;
 }
 #header{
   height:38px;
-  background: white;
+  background-color: #FFDFAA;
   margin-bottom:25px;
 }
 #sign-in{
@@ -57,7 +57,7 @@ li{
   margin-right: 20px;
   padding: 5px;
   display: inline;
-  background-color: #303030;
+  background-color: #FFDFAA;
   -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
   border-radius: 14px;
@@ -65,18 +65,19 @@ li{
 #bottom-navigation li a {
   padding: 10px;
   font-size:14px;
-  color:white;
   text-decoration:none;
+  color:black;
 }
 
 #bottom-navigation li.active{
-  background-color:#E0E3EE;
+  background-color:#C3D9FF;
 }
-#bottom-navigation li:hover a {
-  color:black;
+
+#bottom-navigation li:hover {
+  background-color:#C3D9FF;
 }
+
 #bottom-navigation li.active a{
-  color:black;
 }
 .month-of-attendance{
   margin-top:10px;
@@ -319,6 +320,7 @@ input:placeholder, textarea:placeholder {
   margin-bottom:0px;
 }
 .sent-comments {
+  background-color: #C3D9FF;
   padding-left: 5px;
   border: solid 1px #6C8082;
   -webkit-border-radius: 14px;
@@ -327,6 +329,7 @@ input:placeholder, textarea:placeholder {
   text-align: center;
 }
 .sent-comments:hover {
+  background-color:white;
 }
 #add-more-comments {
   margin:0px;
@@ -379,4 +382,10 @@ input:placeholder, textarea:placeholder {
 }
 .space-up-top {
   margin-top: 25px;
+}
+.semi-shallow-bottom{
+  margin:3px;
+}
+.text-box {
+  margin-left:20px;
 }
