@@ -19,9 +19,9 @@ class StudentsController < ApplicationController
   def send_comments
     #if TeacherMailer.comments_email(params[:comment], params[:student], params[:email], params[:phone]).deliver
       #current_user.update_attribute(:comments_sent, true)
-
     
-    redirect_to comments_path
+   current_user.update_attribute(:comments_sent, true)
+   redirect_to comments_path
    # else
       #redirect_to comments_path
    # end
