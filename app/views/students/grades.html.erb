@@ -1,9 +1,10 @@
 <h2 class="span-16 heading"> Academic Performance </h2>
 <% possible_scores = {'m' => "Meets the standard consistently", 's' => "Sometimes meets the standard", 'n' => "Not meeting the standard", 'na' => "Standard not assessed this term"} %>
+<% abbreviations = ['m', 's', 'n', 'na'] %>
 
 <div id="standards-explanation" class="span-6">
-  <% possible_scores.each_pair do |abbreviation, description| %>
-    <div class="<%="grade-#{abbreviation}"%>"> <span class="metric"><%= abbreviation %> </span> - <%= description %> </div>
+  <% abbreviations.each do |a| %>
+    <div class="<%="grade-#{a}"%>"> <span class="metric"><%= a %> </span> - <%= possible_scores[a] %> </div>
   <% end %>
   
 </div>
