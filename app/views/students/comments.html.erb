@@ -59,11 +59,12 @@
     <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback for Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
     <div id="contact-info" class="span-15">
       <h2 class="shallow-bottom"> Email Your Comments </h2>
-      <%= text_field_tag "phone", "", :placeholder => "phone #" %> 
-      <%= text_field_tag "email", "", :placeholder => "email" %> <br />
+      How would you like Mr. Wairi to get back to you?<br />
+      <%= text_field_tag "phone", "", :placeholder => "enter your phone #" %> 
+      <%= text_field_tag "email", "", :placeholder => "enter your email address" %> <br />
     </div>
     <%= hidden_field_tag "student", current_user.student.name %>
-    <div id="submit-comments-button" class="submit-button">
+    <div id="submit-comments-button" class="submit-comments">
       <%= submit_tag "Email Mr. Wairi These Comments" %>
     </div>
   <% end %>

@@ -119,16 +119,8 @@ textarea {
   border-radius: 10px;
   background-color: white !important;
 }
-input {
-  padding:2px 8px;
-  border: 0px solid #2B2EC1 !important;
-  -webkit-border-radius: 14px;
-  -moz-border-radius: 14px;
-  border-radius: 14px;
-  background-color: #E0E3EE !important;
-}
 
-textarea:hover, textarea:focus, input:hover, input:focus {
+textarea:hover, textarea:focus {
   background-color: #C3D9FF !important;
 }
 .subject {
@@ -320,7 +312,7 @@ input:placeholder, textarea:placeholder {
   margin-bottom:0px;
 }
 .sent-comments {
-  background-color: #C3D9FF;
+  background-color: #FFDFAA;
   padding-left: 5px;
   border: solid 1px #6C8082;
   -webkit-border-radius: 14px;
@@ -329,7 +321,7 @@ input:placeholder, textarea:placeholder {
   text-align: center;
 }
 .sent-comments:hover {
-  background-color:white;
+  background-color: #C3D9FF;
 }
 #add-more-comments {
   margin:0px;
@@ -388,4 +380,7 @@ input:placeholder, textarea:placeholder {
 }
 .text-box {
   margin-left:20px;
+}
+.submit-comments {
+  font-size: 25px !important;
 }
