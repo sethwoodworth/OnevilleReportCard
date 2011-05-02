@@ -121,7 +121,6 @@ textarea {
 }
 
 textarea:hover, textarea:focus {
-  background-color: #C3D9FF !important;
 }
 .subject {
   padding: 0px !important;
