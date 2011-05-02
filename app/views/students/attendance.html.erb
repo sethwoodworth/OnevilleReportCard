@@ -94,7 +94,7 @@
 <div class="column span-7 attendance-comment">
       <% form_tag(save_comment_path, :remote => true, :name => "comment #{attendance.id}") do %>
         <% if attendance.comment_list.blank? %>
-          <%= text_area_tag "comment", "", :placeholder => "Write comments here"  %>
+          <%= text_area_tag "comment", "", :placeholder => "Write comments or questions here"  %>
         <% else %>
           <%= text_area_tag "comment", attendance.comment_list.first %>
         <% end %>

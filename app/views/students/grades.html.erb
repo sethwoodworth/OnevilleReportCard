@@ -38,7 +38,7 @@
     <div class="prepend-1 span-7">
       <% form_tag(save_comment_path, :remote => true, :name => "comment #{subject.id}") do %>
         <% if subject.comment_list.blank? %>
-          <%= text_area_tag "comment", "", :placeholder => "Write comments here" %>
+          <%= text_area_tag "comment", "", :placeholder => "Write comments or questions here" %>
         <% else %>
           <%= text_area_tag "comment", subject.comment_list.first %>
         <% end %>
