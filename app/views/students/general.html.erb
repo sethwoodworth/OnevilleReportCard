@@ -4,12 +4,12 @@
    Here, you can look at <%= current_user.first_name %>'s basic academic performance and attendance record.  Want to leave comments for Mr. Wairi? Click "send" on the last page.  (All the comments that you have written will be emailed to Mr. Wairi.) Use the highlighted buttons at the bottom of the screen to see another page!  </p>
 
   </div>
-  <div class="span-15">
+  <div class="span-15" id="notes-from-teacher">
     <span class="teacher-image">
       <%= image_tag "josh.png", :class => "span-4" %>
     </span>
 
-    <div id="notes-from-teacher" class="text-box">
+    <div class="text-box">
       <h4 class="span-10">
         <b> Here's what Mr. Wairi has to say about <%= current_user.first_name %>'s performance this term: </b>
       </h4>

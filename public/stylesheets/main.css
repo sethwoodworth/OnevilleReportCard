@@ -26,6 +26,9 @@ background-color: #FFF;
 .link {
   font-size: 11px;
 }
+.link:visited {
+  color:blue !important;
+}
 .user-name {
   font-size: 11px;
   padding-right: 10px;
@@ -68,7 +71,8 @@ li{
   text-decoration:none;
   color:black;
 }
-
+#send-comments fieldset{
+}
 #bottom-navigation li.active{
   background-color:#C3D9FF;
 }
@@ -81,6 +85,9 @@ li{
 }
 .month-of-attendance{
   margin-top:10px;
+}
+.month-wrapper {
+  border-right: 3px solid #E0E3EE !important; 
 }
 #title {
   margin-bottom: 10px;
@@ -107,6 +114,7 @@ li{
 a {
   text-decoration: none !important;
 }
+
 #content-wrapper{
   background-color: white;
   padding-bottom:100px;
@@ -233,6 +241,7 @@ textarea:hover, textarea:focus {
   font-size: 24px;
 }
 .list-heading {
+  font-size:14px;
   margin-bottom:0px; 
 }
 .fc-event-title {

@@ -5,7 +5,7 @@
         <% if current_user.student.comment_list.first.present? %>
           <b>General:</b>
           <span class="comment-category">General</span>
-          <hr class="semi-shallow-bottom" />
+          <hr class="shallow-bottom" />
 
           <div> "<%= current_user.student.comment_list.first %>" </div>
         <% end %>
@@ -15,7 +15,7 @@
               <div class="span-7 text-box">
                 <b> Month <%= a.month %>: </b>
                 <span class="comment-category">Attendance</span>
-                <hr class="semi-shallow-bottom" />
+                <hr class="shallow-bottom" />
 
                 <div>"<%= a.comment_list.first %>"</div>
               </div>
@@ -26,7 +26,7 @@
               <div class="span-7 text-box">
                 <b><%= s.description %>:</b>
                 <span class="comment-category">Grades</span>
-                  <hr class="semi-shallow-bottom" />
+                  <hr class="shallow-bottom" />
 
                 <div>"<%= s.comment_list.first %>"</div>
               </div>
@@ -37,7 +37,7 @@
             <div class="span-7 text-box">
               <b><%= e.kind %>:</b>
               <span class="comment-category">Tests</span>
-                <hr class="semi-shallow-bottom" />
+                <hr class="shallow-bottom" />
 
               <div>"<%= e.comment_list.first %>"</div>
             </div>
@@ -46,7 +46,7 @@
 
 </div>
 <br / class="clear">
-<hr / class="space-up-top">
+
 
 <div class="clear sent-comments <%=current_user.comments_sent?%>">
     <a href="#">
@@ -54,19 +54,22 @@
     </a>
   </div>
 
+<br />
 <div id="send-comments" class="clear <%= !current_user.comments_sent?%>">
   <% form_tag(send_comments_path, :remote => true, :name => "comment #{current_user.student.id}") do %>
-    <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback for Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
-    <div id="contact-info" class="span-15">
-      <h2 class="shallow-bottom"> Email Your Comments </h2>
-      How would you like Mr. Wairi to get back to you?<br />
-      <%= text_field_tag "phone", "", :placeholder => "enter your phone #" %> 
-      <%= text_field_tag "email", "", :placeholder => "enter your email address" %> <br />
-    </div>
-    <%= hidden_field_tag "student", current_user.student.name %>
-    <div id="submit-comments-button" class="submit-comments">
-      <%= submit_tag "Email Mr. Wairi These Comments" %>
-    </div>
+    <fieldset>
+      <legend> Email Your Comments to Mr. Wairi</legend>
+      <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback for Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
+      <div id="contact-info" class="span-15">
+        How would you like Mr. Wairi to get back to you?<br />
+        <%= text_field_tag "phone", "", :placeholder => "enter your phone #" %> 
+        <%= text_field_tag "email", "", :placeholder => "enter your email address" %> <br />
+      </div>
+      <%= hidden_field_tag "student", current_user.student.name %>
+      <div id="submit-comments-button" class="submit-comments">
+        <%= submit_tag "Email Mr. Wairi These Comments" %>
+      </div>
+    </fieldset>
   <% end %>
 </div>
 
