@@ -15,9 +15,7 @@
         <b> Here's what Mr. Wairi has to say about <%= current_user.first_name %>'s performance this term: </b>
       </h4>
        <ul>
-
-"Joe has been doing a great job this quarter! He is consistently participating in classroom discussions and helping others that need it. Homework has been turned in more often, but it is still not 100% of the time. I would really like to have his homework reflect what he is capable of."
-
+         "<%= current_user.student.performance_summary %>"
        </ul>
     </div>
   </div>

@@ -9,7 +9,7 @@ Exam.delete_all
 ExamAssessment.delete_all
 Section.delete_all
 
-student = Student.create(:name => "Joe Cooper", :user_id => User.last.id)
+student = Student.create(:name => "Joe Cooper", :user_id => User.last.id, :performance_summary => "Joe has been doing a great job this quarter! He is consistently participating in classroom discussions and helping others that need it. Homework has been turned in more often, but it is still not 100% of the time. I would really like to have his homework reflect what he is capable of.")
 months = [3, 4, 5]
 months.each do |m|
   Attendance.create({:student_id => student.id, :month =>  m, :year => 2011})
