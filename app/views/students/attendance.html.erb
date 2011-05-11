@@ -96,7 +96,7 @@ events: theEvents
 </div>
 </div>
 </div>
-<div class="column span-4 attendance-comment">
+<div class="column span-7 attendance-comment">
   <% form_tag(save_comment_path, :remote => true, :name => "comment #{attendance.id}") do %>
     <% if attendance.comment_list.blank? %>
       <%= text_area_tag "comment", "", :placeholder => "Write comments or questions here"  %>

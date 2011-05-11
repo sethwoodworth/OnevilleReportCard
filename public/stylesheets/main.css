@@ -24,10 +24,14 @@ background-color: #FFF;
   padding-top: 10px;
 }
 .link {
+  color:blue !important;
   font-size: 11px;
 }
 .link:visited {
   color:blue !important;
+}
+.link:hover {
+  color:purple !important;
 }
 .user-name {
   font-size: 11px;
@@ -154,10 +158,8 @@ textarea:hover, textarea:focus {
 }
 .text-box{
   margin-top: 10px;
-  padding: 5px;
 }
 #intro-text {
-  padding: 10px;
   font-size:14px;
   margin-bottom: 20px;
 }
