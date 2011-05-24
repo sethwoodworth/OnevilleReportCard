@@ -6,7 +6,7 @@ html{
 background-color: #FFF;
 }
 #header-background {
-  height:58px;
+  height:73px;
   position:absolute;
   width:100%;
   z-index:-1;
@@ -15,7 +15,7 @@ background-color: #FFF;
   box-shadow: #EEE 0 0 10px;
 }
 #header{
-  height:58px;
+  height:73px;
   background-color: #FFDFAA;
   margin-bottom:25px;
 }
@@ -49,18 +49,23 @@ li{
   margin-left:30px;
   margin-top:15px;
 }
-#bottom-navigation {
-
+#navigation {
+  margin-top: 5px;
+  padding: 0px;
 }
-#bottom-navigation li {
-  border: 1px #2B2EC1 solid;
-  margin-right: 20px;
+#navigation li {
+  border-top: solid #7F7F7F 3px;
+  border-left: solid #7F7F7F 1px;
+  border-right: solid #7F7F7F 1px;
+  padding:10px;
+  padding-bottom:4px;
+  margin-right: 5px;
   display: inline;
-  -webkit-border-radius: 45px;
-  -moz-border-radius: 45px;
-  border-radius: 45px;
+  -webkit-border-radius: 7px 7px 0px 0px;
+  -moz-border-radius: 7px 7px 0px 0px;
+  border-radius: 7px 7px 0px 0px;
 }
-#bottom-navigation li a {
+#navigation li a {
   padding: 10px;
   font-size:14px;
   text-decoration:none;
@@ -68,15 +73,32 @@ li{
 }
 #send-comments fieldset{
 }
-#bottom-navigation li.active{
-  background-color:#C3D9FF;
+#navigation li.active{
+  border-top: solid #C3D9FF 3px;
+  border-left: none;
+  border-right: none;
+  background-color:white;
+  padding-bottom: 25px;
+  color:black;
+}
+#navigation li.active:hover {
+  border-left: none;
+  border-right: none;
 }
 
-#bottom-navigation li:hover {
-  background-color:#C3D9FF;
+#navigation li.active a{
+  color:black;
 }
 
-#bottom-navigation li.active a{
+#navigation li:hover {
+  border-top: solid #C3D9FF 3px;
+  border-left: solid #FFDFAA 1px;
+  border-right: solid #FFDFAA 1px;
+  background-color:white;
+  color:black;
+}
+
+#navigation li.active a{
 }
 .month-of-attendance{
   margin-top:10px;
