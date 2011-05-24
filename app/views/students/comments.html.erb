@@ -1,15 +1,15 @@
 <h2 class="shallow-bottom heading"> Your Comments </h2>
 <hr />
 <div class="comment-summary">
-    <div class="span-7 text-box">
-        <% if current_user.student.comment_list.first.present? %>
-          <b>General:</b>
-          <span class="comment-category">General</span>
-          <hr class="shallow-bottom" />
+    <% if current_user.student.comment_list.first.present? %>
+      <div class="span-7 text-box">
+            <b>General:</b>
+            <span class="comment-category">General</span>
+            <hr class="shallow-bottom" />
 
-          <div> "<%= current_user.student.comment_list.first %>" </div>
-        <% end %>
-    </div>
+            <div> "<%= current_user.student.comment_list.first %>" </div>
+      </div>
+    <% end %>
         <% Attendance.all.each do |a| %>
             <% if a.comment_list.first.present? %>
               <div class="span-7 text-box">

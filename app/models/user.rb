@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
     student.name
   end
   def first_name
-    student.name.split(" ").first
+    student.first_name
   end
   def last_name
-    student.name.split(" ").last
+    student.last_name
   end
 end

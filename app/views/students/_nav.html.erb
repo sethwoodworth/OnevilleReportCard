@@ -4,11 +4,11 @@
       <% pages.each do |page| %>
         <% if page == params[:action] %>
           <li class="clickable active" id="<%="#{page}"%>-link">
-            <%= link_to page.capitalize, "#{page}" %>
+            <%= link_to "", "#{page}" %>
           </li>
         <% else %>
           <li class="clickable" id="<%="#{page}"%>-link">
-            <%= link_to page.capitalize, "#{page}" %>
+            <%= link_to "", "#{page}" %>
           </li>
         <% end %>
       <% end %>

@@ -1,19 +1,22 @@
 class StudentsController < ApplicationController 
   def general
+    @student = current_user.student 
   end
   def index
   end
 
   def attendance
-    @attendances = Attendance.all
+    @attendances = Attendance.find_all_by_student_id(current_user.student.id)
   end
 
   def tests
+    @student = current_user.student 
     @exams = Exam.all
   end
 
   def grades
     @subjects = Subject.all
+    @student = current_user.student 
   end
 
   def send_comments

@@ -41,6 +41,7 @@
             <%= link_to "login", new_user_session_path, :class => "link" %>
           <% end %>
         </div>
+        <%= render :partial => "nav" %>
       </div>
 
       <div class="span-24" id="content-wrapper">
@@ -50,7 +51,6 @@
           <%= yield %>
         </div>
 
-        <%= render :partial => "nav" %>
       </div>
     </div>
 

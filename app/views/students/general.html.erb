@@ -1,8 +1,8 @@
 <div>
   <div id="intro-text" class="span-15">
-    <b>Welcome to <%= current_user.first_name %>'s report card! </b>
+    <b>Welcome to <%= @student.first_name %>'s report card! </b>
       <hr / class="shallow-bottom">
-   Here, you can look at <%= current_user.first_name %>'s basic academic performance and attendance record.  Want to leave comments for Mr. Wairi? Click "send" on the last page.  (All the comments that you have written will be emailed to Mr. Wairi.) Use the highlighted buttons at the bottom of the screen to see another page! 
+   Here, you can look at <%= @student.first_name %>'s basic academic performance and attendance record.  Want to leave comments for Mr. Wairi? Click "send" on the last page.  (All the comments that you have written will be emailed to Mr. Wairi.) Use the highlighted buttons at the bottom of the screen to see another page! 
 
   </div>
   <div class="span-15" id="notes-from-teacher">
@@ -12,19 +12,19 @@
 
     <div class="text-box">
       <h4 class="span-10">
-        <b> Here's what Mr. Wairi has to say about <%= current_user.first_name %>'s performance this term: </b>
+        <b> Here's what Mr. Wairi has to say about <%= @student.first_name %>'s performance this term: </b>
       </h4>
        <ul>
-         "<%= current_user.student.performance_summary %>"
+         "<%= @student.performance_summary %>"
        </ul>
     </div>
   </div>
   <div class="prepend-1 span-7">
     <%= form_tag(save_comment_path, :remote => true) %>
-    <% if current_user.student.comment_list.blank? %>
+    <% if @student.comment_list.blank? %>
       <%= text_area_tag "comment", "", :placeholder => "Write comments or questions here" %>
     <% else %>
-      <%= text_area_tag "comment", current_user.student.comment_list.first %>
+      <%= text_area_tag "comment", @student.comment_list.first %>
     <% end %>
     <%= hidden_field_tag "model", "student" %>
     <div class="submit-button">

@@ -13,12 +13,12 @@
         <th>
           Period
         </th>
-        <% @exam.exam_assessments.map { |ea| ea.sections}.flatten.map {|s| s.name }.uniq.each do |section| %>
+        <% @exam.exam_assessments.where(:student_id => @student.id).map { |ea| ea.sections}.flatten.map {|s| s.name }.uniq.each do |section| %>
         <th>
           <%= section %>
         </th>
         <% end %>
-        <% @exam.exam_assessments.each do |ea|  %>
+        <% @exam.exam_assessments.where(:student_id => @student.id).each do |ea|  %>
           <tr>
             <td>
               <%= Time.local(ea.period.year, ea.period.month).strftime('%b  %Y') %>

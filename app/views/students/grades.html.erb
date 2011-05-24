@@ -28,7 +28,7 @@
               <td>
                  <%= standard.description.html_safe %>
                </td>
-               <% standard.assessments.each do |a| %>
+               <% standard.assessments.where(:student_id => @student.id).each do |a| %>
                  <td class="grade-<%= a.score %>">
                    <%= a.score %>
                  </td>
