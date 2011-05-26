@@ -25,11 +25,11 @@
         </tr>
         <% subject.standards.each do |standard| %>
           <tr class="metrics-and-scores border">
-              <td>
+              <td class="grade-description">
                  <%= standard.description.html_safe %>
                </td>
                <% standard.assessments.where(:student_id => @student.id).each do |a| %>
-                 <td class="grade-<%= a.score %>">
+                 <td class="grade grade-<%= a.score %>">
                    <%= a.score %>
                  </td>
                <% end %>
@@ -38,13 +38,14 @@
     </table>
     <div class="prepend-1 span-7">
       <% form_tag(save_comment_path, :remote => true, :name => "comment #{subject.id}") do %>
-        <% if subject.comment_list.blank? %>
+        <% @assessment = subject.standards.first.assessments.where(:student_id => @student.id).first %>
+        <% if @assessment.comment_list.blank? %>
           <%= text_area_tag "comment", "", :placeholder => "Write comments or questions here" %>
         <% else %>
-          <%= text_area_tag "comment", subject.comment_list.first %>
+          <%= text_area_tag "comment", @assessment.comment_list.first %>
         <% end %>
-        <%= hidden_field_tag "model", "subject" %>
-        <%= hidden_field_tag "object_id", subject.id %>
+        <%= hidden_field_tag "model", "assessment" %>
+        <%= hidden_field_tag "object_id", @assessment.id %>
         <div class="submit-button">
           <%= submit_tag "Save Comment" %>
         </div>

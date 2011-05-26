@@ -6,17 +6,17 @@ html{
 background-color: #FFF;
 }
 #header-background {
-  height:73px;
+  color: white;
+  height:75px;
   position:absolute;
   width:100%;
   z-index:-1;
-  background-color: #FFDFAA;
-  border-bottom: 3px solid #E0E3EE;
-  box-shadow: #EEE 0 0 10px;
+  background-color: #333333;
 }
 #header{
-  height:73px;
-  background-color: #FFDFAA;
+  color: white;
+  height:75px;
+  background-color: #333333;
   margin-bottom:25px;
 }
 #sign-in{
@@ -24,14 +24,14 @@ background-color: #FFF;
   padding-top: 10px;
 }
 .link {
-  color:blue !important;
+  color:#FFDFAA !important;
   font-size: 11px;
 }
 .link:visited {
-  color:blue !important;
+  color:#FFDFAA !important;
 }
 .link:hover {
-  color:purple !important;
+  color:#C3D9FF !important;
 }
 .user-name {
   font-size: 11px;
@@ -54,9 +54,8 @@ li{
   padding: 0px;
 }
 #navigation li {
-  border-top: solid #7F7F7F 3px;
-  border-left: solid #7F7F7F 1px;
-  border-right: solid #7F7F7F 1px;
+  background-color: #FFDFAA;
+
   padding:10px;
   padding-bottom:4px;
   margin-right: 5px;
@@ -92,8 +91,6 @@ li{
 
 #navigation li:hover {
   border-top: solid #C3D9FF 3px;
-  border-left: solid #FFDFAA 1px;
-  border-right: solid #FFDFAA 1px;
   background-color:white;
   color:black;
 }
@@ -107,12 +104,16 @@ li{
   border-right: 3px solid #E0E3EE !important; 
 }
 #title {
+  color:white;
   margin-bottom: 10px;
+}
+#login-title {
+  margin-top: 15px;
+  color:white;
 }
 
 
 a {
-  text-decoration: none !important;
 }
 
 #content-wrapper{
@@ -171,6 +172,9 @@ textarea:hover, textarea:focus {
 .metrics-and-scores {
   margin-left: 0;
   padding-left: 0;
+}
+.grade-description {
+  width: 500px;
 }
 .subject-details, .exam-details td {
   background-color:white;
@@ -347,17 +351,16 @@ input:placeholder, textarea:placeholder {
   margin-top: 10px;
   margin-bottom: 10px;
   border: solid 2px #6C8082;
-  
 }
 
 #notice { background-color: #A4E7A0; border: 1px solid #26722D; }
-#error { background-color: #F0A8A8; border: 1px solid #900; }
-#notice, #error { width: 100%; margin-bottom: 5px;}
-#notice p, #error p { padding: 0; margin: 0px; padding:5px; color: #000; }
-#notice a, #error a { text-decoration: none; padding: 0 3px; }
+#alert { background-color: #F0A8A8; border: 1px solid #900; }
+#notice, #alert { width: 100%; margin-bottom: 5px;}
+#notice p, #alert p { padding: 0; margin: 0px; padding:5px; color: #000; }
+#notice a, #alert a { text-decoration: none; padding: 0 3px; }
 #notice a { border: 1px solid #26722D; color: #26722D; }
-#error a { border: 1px solid #900; color: #900; }
-#notice a:hover, #error a:hover { color: #333; border: 1px solid #333; }
+#alert a { border: 1px solid #900; color: #900; }
+#notice a:hover, #alert a:hover { color: #333; border: 1px solid #333; }
 
 .center {
   text-align:center !important;

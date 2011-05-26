@@ -19,6 +19,10 @@ class StudentsController < ApplicationController
     @student = current_user.student 
   end
 
+  def comments
+    @student = current_user.student
+  end
+
   def send_comments
     #if TeacherMailer.comments_email(params[:comment], params[:student], params[:email], params[:phone]).deliver
       #current_user.update_attribute(:comments_sent, true)
@@ -34,10 +38,10 @@ class StudentsController < ApplicationController
   def save_comment
     if params[:model] == "student"
       o = current_user.student
-    elsif params[:model] == "exam"
-      o = Exam.find(params[:object_id])
-    elsif params[:model] == "subject"
-      o = Subject.find(params[:object_id])
+    elsif params[:model] == "exam_assessment"
+      o = ExamAssessment.find(params[:object_id])
+    elsif params[:model] == "assessment"
+      o = Assessment.find(params[:object_id])
     elsif params[:model] == "attendance"
       o = Attendance.find(params[:object_id])
     end

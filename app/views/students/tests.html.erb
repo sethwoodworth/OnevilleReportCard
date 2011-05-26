@@ -33,13 +33,14 @@
       </table>
     <div class="prepend-1 span-7">
       <% form_tag(save_comment_path, :remote => true) do %>
-        <% if exam.comment_list.blank? %>
+        <% @exam_assessment = exam.exam_assessments.where(:student_id => @student.id).first %>
+        <% if @exam_assessment.comment_list.blank? %>
           <%= text_area_tag "comment", "", :placeholder => "Write comments or questions here" %>
         <% else %>
-          <%= text_area_tag "comment", exam.comment_list.first %>
+          <%= text_area_tag "comment", @exam_assessment.comment_list.first %>
         <% end %>
-        <%= hidden_field_tag "model", "exam" %>
-        <%= hidden_field_tag "object_id", exam.id %>
+        <%= hidden_field_tag "model", "exam_assessment" %>
+        <%= hidden_field_tag "object_id", @exam_assessment.id %>
         <div class="submit-button">
           <%= submit_tag "Save Comment" %>
         </div>

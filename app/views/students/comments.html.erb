@@ -1,16 +1,16 @@
 <h2 class="shallow-bottom heading"> Your Comments </h2>
 <hr />
 <div class="comment-summary">
-    <% if current_user.student.comment_list.first.present? %>
+    <% if @student.comment_list.first.present? %>
       <div class="span-7 text-box">
             <b>General:</b>
             <span class="comment-category">General</span>
             <hr class="shallow-bottom" />
 
-            <div> "<%= current_user.student.comment_list.first %>" </div>
+            <div> "<%= @student.comment_list.first %>" </div>
       </div>
     <% end %>
-        <% Attendance.all.each do |a| %>
+    <% Attendance.where(:student_id => @student.id).each do |a| %>
             <% if a.comment_list.first.present? %>
               <div class="span-7 text-box">
                 <b> Month <%= a.month %>: </b>
@@ -21,21 +21,21 @@
               </div>
             <% end %>
         <% end %>
-        <% Subject.all.each do |s| %>
-            <% if s.comment_list.first.present? %>
+        <% @student.assessments.each do |a| %>
+            <% if a.comment_list.first.present? %>
               <div class="span-7 text-box">
-                <b><%= s.description %>:</b>
+                <b><%= a.standard.subject.description %>:</b>
                 <span class="comment-category">Grades</span>
                   <hr class="shallow-bottom" />
 
-                <div>"<%= s.comment_list.first %>"</div>
+                <div>"<%= a.comment_list.first %>"</div>
               </div>
             <% end %>
         <% end %>
-      <% Exam.all.each do |e| %>
+      <% @student.exam_assessments.each do |e| %>
           <% if e.comment_list.first.present?  %>
             <div class="span-7 text-box">
-              <b><%= e.kind %>:</b>
+              <b><%= e.exam.kind %>:</b>
               <span class="comment-category">Tests</span>
                 <hr class="shallow-bottom" />
 
@@ -56,7 +56,7 @@
 
 <br />
 <div id="send-comments" class="clear <%= !current_user.comments_sent?%>">
-  <% form_tag(send_comments_path, :remote => true, :name => "comment #{current_user.student.id}") do %>
+  <% form_tag(send_comments_path, :remote => true, :name => "comment #{@student.id}") do %>
     <fieldset>
       <legend> Email Your Comments to Mr. Wairi</legend>
       <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback for Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
@@ -65,7 +65,7 @@
         <%= text_field_tag "phone", "", :placeholder => "enter your phone #" %> 
         <%= text_field_tag "email", "", :placeholder => "enter your email address" %> <br />
       </div>
-      <%= hidden_field_tag "student", current_user.student.name %>
+      <%= hidden_field_tag "student", @student.name %>
       <div id="submit-comments-button" class="submit-comments">
         <%= submit_tag "Email Mr. Wairi These Comments" %>
       </div>
