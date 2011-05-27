@@ -1,4 +1,4 @@
-# Must register a user first (uses the last created user for the student connection)
+# Must register 2 users first (uses the first and last created user for the student connection)
 Student.delete_all
 Attendance.delete_all
 Anomaly.delete_all
@@ -9,19 +9,22 @@ Exam.delete_all
 ExamAssessment.delete_all
 Section.delete_all
 
-student = Student.create(:name => "Joe Cooper", :user_id => User.last.id, :performance_summary => "Joe has been doing a great job this quarter! He is consistently participating in classroom discussions and helping others that need it. Homework has been turned in more often, but it is still not 100% of the time. I would really like to have his homework reflect what he is capable of.")
+student = Student.create(:name => "Joe Cooper", :user_id => User.first.id, :performance_summary => "Joe has been doing a great job this quarter! He is consistently participating in classroom discussions and helping others that need it. Homework has been turned in more often, but it is still not 100% of the time. I would really like to have his homework reflect what he is capable of.")
 student2 = Student.create(:name => "Mary Billings", :user_id => User.last.id, :performance_summary => "Mary has been doing a great job this quarter! She is consistently participating in classroom discussions and helping others that need it. Homework has been turned in more often, but it is still not 100% of the time. I would really like to have her homework reflect what she is capable of.")
-months = [3, 4, 5]
+[student, student2].each do |student|
+  months = [3, 4, 5]
 
-months.each do |m|
-  Attendance.create({:student_id => student.id, :month =>  m, :year => 2011})
-  Attendance.create({:student_id => student2.id, :month =>  m, :year => 2011})
+  months.each do |m|
+    Attendance.create({:student_id => student.id, :month =>  m, :year => 2011})
+  end
 end
 
-Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.local(2011, 4, 21))
-Anomaly.create(:attendance_id => Attendance.first.id, :kind => "absent", :school_date => Time.local(2011, 4, 6))
-Anomaly.create(:attendance_id => Attendance.first.id, :kind => "late", :moment => Time.local(2011, 4, 4, 9), :school_date => Time.local(2011, 4, 4))
-Anomaly.create(:attendance_id => Attendance.all[1].id, :kind => "late", :moment => Time.local(2011, 5, 5, 9), :school_date => Time.local(2011, 5, 5))
+Anomaly.create(:attendance_id => student.attendances[0].id, :kind => "absent", :school_date => Time.local(2011, 4, 21))
+Anomaly.create(:attendance_id => student.attendances[0].id, :kind => "absent", :school_date => Time.local(2011, 4, 14))
+Anomaly.create(:attendance_id => student.attendances[1].id, :kind => "absent", :school_date => Time.local(2011, 5, 6))
+Anomaly.create(:attendance_id => student.attendances[2].id, :kind => "late", :moment => Time.local(2011, 6, 6, 9), :school_date => Time.local(2011, 6, 6))
+Anomaly.create(:attendance_id => student2.attendances[0].id, :kind => "late", :moment => Time.local(2011, 4, 5, 9), :school_date => Time.local(2011, 4, 5))
+Anomaly.create(:attendance_id => student2.attendances[1].id, :kind => "late", :moment => Time.local(2011, 5, 5, 9), :school_date => Time.local(2011, 5, 5))
 
 s = Subject.create(:description => "Reading and Literature")
 

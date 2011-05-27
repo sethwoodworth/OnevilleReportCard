@@ -1,0 +1,35 @@
+  <div class="month">
+    <% absences = attendance.absences %>
+    <% @lates = attendance.lates_by_month(attendance.month + 1) %>
+    <div class="column span-5 attendance-description text-box">
+      <h3 class="list-heading">Summary:</h3>
+      <hr / class="shallow-bottom">
+      <div>
+        Total days absent: <%= absences.count %>
+    </div>
+    <div>
+      Total days late: <%= @lates.count %>
+  </div>
+  <br />
+  <br />
+  <% if attendance.anomalies.present? %>
+    <h3 class="list-heading">Details:</h3>
+    <hr / class="shallow-bottom">
+    <% absences.each do |a| %>
+      <div>
+        <%= "Absent: #{a.school_date.month}/#{a.school_date.day}" %>
+      </div>
+    <% end %>
+    <% @lates.each do |l| %>
+      <div>
+        <% time = l.moment.hour - 4 %>
+        <% ampm = time < 12 ? "AM" : "PM" %>
+        <%= "Late (#{time} #{ampm}): #{l.school_date.month}/#{l.school_date.day}" %>
+      </div>
+    <% end %>
+
+  <% end %>
+
+</div>
+</div>
+

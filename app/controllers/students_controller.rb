@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
   end
 
   def attendance
+    @student = current_user.student
     @attendances = Attendance.find_all_by_student_id(current_user.student.id)
   end
 

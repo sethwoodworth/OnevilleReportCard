@@ -1,0 +1,51 @@
+<% month = attendance.month %>
+<div class="column span-3 clear">
+</div>
+<div class="calendar <%= month %> span-9">
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+        var m = <%= month %>;
+
+        <% if attendance.anomalies.present? %>
+          var anomalyString = '<%= attendance.anomalies.to_json.html_safe %>';
+          var anomalies = eval(anomalyString);
+
+          var theEvents = [];
+          for (var i = 0; i < anomalies.length; i++) {
+          anomalyDescription = anomalies[i]['anomaly']['kind'];
+          anomalyDay = anomalies[i]['anomaly']['school_date'].split('-')[2];
+          anomalyMonth = parseInt(anomalies[i]['anomaly']['school_date'].split('-')[1]) - 1;
+          anomalyYear = anomalies[i]['anomaly']['school_date'].split('-')[0];
+
+          var theEvent = {
+            title: anomalyDescription,
+            start: new Date(anomalyYear, anomalyMonth, anomalyDay),
+            allDay: true
+            };
+            theEvents.push(theEvent);
+          };
+
+        <% else %>
+          theEvents = [{}];
+        <% end %>
+
+        $('.<%= month %>').fullCalendar({
+          year: 2011,
+          month: m,
+          date: 1,
+          weekends: false,
+          weekMode: 'liquid',
+          editable: false,
+          eventColor: '#FEFA95',
+          eventTextColor: 'black',
+          header : {
+          center:   '',
+          right:   '',
+          left: 'title',
+          },
+          events: theEvents
+        });
+    });
+</script>
+  </div>
