@@ -42,7 +42,9 @@
         <%= hidden_field_tag "model", "exam_assessment" %>
         <%= hidden_field_tag "object_id", @exam_assessment.id %>
         <div class="submit-button">
-          <%= submit_tag "Save Comment" %>
+          <% unless @admin %>
+            <%= submit_tag "Save Comment" %>
+          <% end %>
         </div>
       <% end %>
     </div>

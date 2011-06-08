@@ -2,7 +2,13 @@ class StudentsController < ApplicationController
   def general
     if current_admin
       @admin = true
-      @student = Student.first
+      @student_to_view = params[:student_to_view] 
+      if @student_to_view 
+        session[:student_to_view] = @student_to_view
+      else
+        session[:student_to_view] = Student.first
+      end
+      @student = Student.find(session[:student_to_view])
     end
     @student ||= current_user.student 
   end
@@ -12,7 +18,13 @@ class StudentsController < ApplicationController
   def attendance
     if current_admin
       @admin = true
-      @student = Student.first
+      @student_to_view = params[:student_to_view] 
+      if @student_to_view 
+        session[:student_to_view] = @student_to_view
+      else
+        session[:student_to_view] = Student.first
+      end
+      @student = Student.find(session[:student_to_view])
     end
     @student ||= current_user.student
     @attendances = Attendance.find_all_by_student_id(@student.id)
@@ -21,7 +33,13 @@ class StudentsController < ApplicationController
   def grades
     if current_admin
       @admin = true
-      @student = Student.first
+      @student_to_view = params[:student_to_view] 
+      if @student_to_view 
+        session[:student_to_view] = @student_to_view
+      else
+        session[:student_to_view] = Student.first
+      end
+      @student = Student.find(session[:student_to_view])
     end
     @subjects = Subject.all
     @student ||= current_user.student 
@@ -30,7 +48,13 @@ class StudentsController < ApplicationController
   def tests
     if current_admin
       @admin = true
-      @student = Student.first
+      @student_to_view = params[:student_to_view] 
+      if @student_to_view 
+        session[:student_to_view] = @student_to_view
+      else
+        session[:student_to_view] = Student.first
+      end
+      @student = Student.find(session[:student_to_view])
     end
     @student ||= current_user.student 
     @exams = Exam.all
@@ -39,7 +63,13 @@ class StudentsController < ApplicationController
   def comments
     if current_admin
       @admin = true
-      @student = Student.first
+      @student_to_view = params[:student_to_view] 
+      if @student_to_view 
+        session[:student_to_view] = @student_to_view
+      else
+        session[:student_to_view] = Student.first
+      end
+      @student = Student.find(session[:student_to_view])
     end
     @student ||= current_user.student 
   end

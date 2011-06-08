@@ -28,7 +28,9 @@
     <% end %>
     <%= hidden_field_tag "model", "student" %>
     <div class="submit-button">
-      <%= submit_tag "Save Comment" %>
+      <% unless @admin %>
+        <%= submit_tag "Save Comment" %>
+      <% end %>
     </div>
   </div>
 </div>

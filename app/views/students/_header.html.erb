@@ -1,0 +1,34 @@
+<div id="header" class="span-24 last">
+  <h2 id="title" class="span-5">Report Card</h2>
+  <div id="sign-in" class="span-19 last">
+    <% if user_signed_in? %>
+      <span class="user-name">
+        <%= current_user.name %>
+      </span>
+      <%= link_to "logout", destroy_user_session_path, :class => "link" %>
+
+
+    <% elsif admin_signed_in? %>
+
+      <% @students = Student.all %>
+      Select Student: 
+      <%= select_tag "student_viewing", options_from_collection_for_select(@students, "id", "name", session[:student_to_view]) %>
+
+
+
+
+
+
+
+
+
+
+
+    <% else %>
+      <%= link_to "login", new_user_session_path, :class => "link" %>
+    <% end %>
+  </div>
+  <div class="span-15 clear">
+    <%= render :partial => "nav" %>
+  </div>
+</div>

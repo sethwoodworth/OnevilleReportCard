@@ -3,11 +3,19 @@
       <% pages.each do |page| %>
         <% if page == params[:action] %>
           <li class="clickable active" id="<%="#{page}"%>-link">
-            <%= link_to page.capitalize, "#{page}" %>
+            <% if @admin %>
+              <%= link_to page.capitalize, "#{page}#{params[:student_to_view].present? ? '?student_to_view='+params[:student_to_view] : ''}" %>
+            <% else %>
+              <%= link_to page.capitalize, "#{page}" %>
+            <% end %>
           </li>
         <% else %>
           <li class="clickable" id="<%="#{page}"%>-link">
-            <%= link_to page.capitalize, "#{page}" %>
+            <% if @admin %>
+              <%= link_to page.capitalize, "#{page}#{params[:student_to_view].present? ? '?student_to_view='+params[:student_to_view] : ''}" %>
+            <% else %>
+              <%= link_to page.capitalize, "#{page}" %>
+            <% end %>
           </li>
         <% end %>
       <% end %>

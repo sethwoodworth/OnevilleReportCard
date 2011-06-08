@@ -29,22 +29,7 @@
       </div> 
     </div>
     <div id="container">
-      <div id="header" class="span-24 last">
-        <h2 id="title" class="span-5">Report Card</h2>
-        <div id="sign-in" class="span-19 last">
-          <% if user_signed_in? %>
-            <span class="user-name">
-              <%= current_user.name %>
-            </span>
-            <%= link_to "logout", destroy_user_session_path, :class => "link" %>
-          <% else %>
-            <%= link_to "login", new_user_session_path, :class => "link" %>
-          <% end %>
-        </div>
-        <div class="span-15 clear">
-          <%= render :partial => "nav" %>
-        </div>
-      </div>
+      <%= render :partial => "header" %>
 
       <div class="span-24" id="content-wrapper">
 
