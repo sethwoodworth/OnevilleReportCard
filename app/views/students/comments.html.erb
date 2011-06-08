@@ -48,28 +48,29 @@
 <br / class="clear">
 
 
-<div class="clear sent-comments <%=current_user.comments_sent?%>">
-    <a href="#">
-      <h2 id="add-more-comments">Your comments have been sent! <br /><span class="small-text">(If you forgot something, click here to send additional comments)</span> </h2>
-    </a>
+<% unless @admin %>
+  <div class="clear sent-comments <%=current_user.comments_sent?%>">
+      <a href="#">
+        <h2 id="add-more-comments">Your comments have been sent! <br /><span class="small-text">(If you forgot something, click here to send additional comments)</span> </h2>
+      </a>
+    </div>
+
+  <br />
+  <div id="send-comments" class="clear <%= !current_user.comments_sent?%>">
+    <% form_tag(send_comments_path, :remote => true, :name => "comment #{@student.id}") do %>
+      <fieldset>
+        <legend> Email Your Comments to Mr. Wairi</legend>
+        <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback for Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
+        <div id="contact-info" class="span-15">
+          How would you like Mr. Wairi to get back to you?<br />
+          <%= text_field_tag "phone", "", :placeholder => "enter your phone #" %> 
+          <%= text_field_tag "email", "", :placeholder => "enter your email address" %> <br />
+        </div>
+        <%= hidden_field_tag "student", @student.name %>
+        <div id="submit-comments-button" class="submit-comments">
+          <%= submit_tag "Email Mr. Wairi These Comments" %>
+        </div>
+      </fieldset>
+    <% end %>
   </div>
-
-<br />
-<div id="send-comments" class="clear <%= !current_user.comments_sent?%>">
-  <% form_tag(send_comments_path, :remote => true, :name => "comment #{@student.id}") do %>
-    <fieldset>
-      <legend> Email Your Comments to Mr. Wairi</legend>
-      <%= text_area_tag "comment", "", :placeholder => "Final questions or feedback for Mr. Wairi?", :class => "span-3", :id => "final-comment" %>
-      <div id="contact-info" class="span-15">
-        How would you like Mr. Wairi to get back to you?<br />
-        <%= text_field_tag "phone", "", :placeholder => "enter your phone #" %> 
-        <%= text_field_tag "email", "", :placeholder => "enter your email address" %> <br />
-      </div>
-      <%= hidden_field_tag "student", @student.name %>
-      <div id="submit-comments-button" class="submit-comments">
-        <%= submit_tag "Email Mr. Wairi These Comments" %>
-      </div>
-    </fieldset>
-  <% end %>
-</div>
-
+<% end %>

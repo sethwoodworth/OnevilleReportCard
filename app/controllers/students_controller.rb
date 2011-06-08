@@ -1,27 +1,47 @@
 class StudentsController < ApplicationController 
   def general
-    @student = current_user.student 
+    if current_admin
+      @admin = true
+      @student = Student.first
+    end
+    @student ||= current_user.student 
   end
   def index
   end
 
   def attendance
-    @student = current_user.student
-    @attendances = Attendance.find_all_by_student_id(current_user.student.id)
-  end
-
-  def tests
-    @student = current_user.student 
-    @exams = Exam.all
+    if current_admin
+      @admin = true
+      @student = Student.first
+    end
+    @student ||= current_user.student
+    @attendances = Attendance.find_all_by_student_id(@student.id)
   end
 
   def grades
+    if current_admin
+      @admin = true
+      @student = Student.first
+    end
     @subjects = Subject.all
-    @student = current_user.student 
+    @student ||= current_user.student 
+  end
+
+  def tests
+    if current_admin
+      @admin = true
+      @student = Student.first
+    end
+    @student ||= current_user.student 
+    @exams = Exam.all
   end
 
   def comments
-    @student = current_user.student
+    if current_admin
+      @admin = true
+      @student = Student.first
+    end
+    @student ||= current_user.student 
   end
 
   def send_comments
