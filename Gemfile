@@ -11,6 +11,8 @@ gem 'devise'
 gem 'cancan'
 gem 'acts-as-taggable-on'
 
+gem 'rake', '0.8.7'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
